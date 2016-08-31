@@ -4,9 +4,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Wes Young
+  - __Scrum Master__: Caleb Aston
+  - __Development Team Members__: David Thai, Roni Vegh
 
 ## Table of Contents
 
