@@ -1,6 +1,7 @@
 {
   "name": "hrr18-shock",
   "version": "1.0.0",
+<<<<<<< HEAD
   "description": "README.md",
   "main": "index.js",
   "scripts": {
@@ -19,5 +20,27 @@
   "dependencies": {
     "mongodb": "^2.2.9",
     "mongoose": "^4.5.10"
+=======
+  "description": "Personl Trainer Application, Client Management",
+  "main": "index.js",
+  "scripts": {
+    "test": "testhere"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hrr18-shock/hrr18-shock.git"
+  },
+  "keywords": [
+    "Trainer"
+  ],
+  "author": "Caleb Aston, David Thai, Wes Young, Roni Vegh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hrr18-shock/hrr18-shock/issues"
+  },
+  "homepage": "https://github.com/hrr18-shock/hrr18-shock#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+>>>>>>> b4ac0ff9047e8751f77207315c7e4855c729da38
   }
 }

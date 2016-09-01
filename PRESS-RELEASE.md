@@ -17,28 +17,36 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+Gym Time / Log, Gym, Repeat (LGR) / ???
 
 ## Sub-Heading ##
-  > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
+Connects personal trainers to their clients and tracks the clients' progress on the plans they gave them.
 
 ## Summary ##
+Allows personal trainers to better connect with their clients, provide workouts, and keep track of their progress in real time.  The app allows trainers to create personalized workouts for their clients, and (hopefully) message them and set out meal plans.
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
 ## Problem ##
+Personal trainers lack modern tools to stay organized. This creates more of a disconnect between the clients and their trainers.
   > Describe the problem your product solves.
 
 ## Solution ##
+Connects personal trainers to their clients and tracks the clients' progress on the plans they gave them.
   > Describe how your product elegantly solves the problem.
 
 ## Quote from You ##
+"We make person training lazy!" - The team!
   > A quote from a spokesperson in your company.
-
+  
 ## How to Get Started ##
+Joining is easy! You can use any of the popular, from-the-cloud, log-in services! Facebook, Gmail, Pinterest, MySpace. And your personalized training plan will be available to you in real time.
   > Describe how easy it is to get started.
 
 ## Customer Quote ##
+"Since using this app, I can deadlift my own body weight three times over!" -- Mr Olympia
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
-
+  
 ## Closing and Call to Action ##
+With the help of our app, you only have to focus on the gains in the gym! Join today!
   > Wrap it up and give pointers where the reader should go next.
+  
