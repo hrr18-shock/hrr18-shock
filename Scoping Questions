@@ -1,11 +1,73 @@
 What's the link to your GitHub repo? What's the link to your Waffle.io?
+-https://github.com/hrr18-shock/hrr18-shock
+-https://waffle.io/hrr18-shock/hrr18-shock
 What's your project idea in 1 or 2 sentences?
+- Personl Trainer Application, Client Management
+
 What tech stack do you plan on focusing on? Which parts are familiar, and which parts are new? Which parts have you not yet decided?
+- Mongo
+- Angular
+- Express
+- Node
+- sockets
+
 Who is the product owner? Who is the scrum master?
+Product Owner - MES
+Scrum Master - KALE
+
 What is your app going to look like? (use moqups.com or a piece of paper to sketch something out)
+
+
 What's your list of MVP features? What will you cut back if you run out of time? What will you add if you have extra time?
+MVP Features
+-Auth
+-Trainer/Client Database
+-To Do Exercises in Database 
+-Workout Videos API
+
+CutBack
+-Auth
+
+Extra Time
+- Testing
+- Meal Plan Section
+- Chat Sockets
+- GPS tracking
+- Make $$$$$$$$ Millions $$$$$$$
+
+
 What components are necessary (client side, server side, database, outside APIs, etc)?
+Mongoose
+Angular
+UI Router
+Express
+OAuth2
+grunt/gulp/webpack?
+Karma - Client
+Mocha/Chai - Serverside
+
+
 Who's working on which parts of the app?
+Index(Shell Nav Footer)/Signin/ Signup / Trainer Page -Client List -Client Exercises  
+/ Client Page -Exercises List -Exercise Videos / OAUTH  
+Everyone - Skeleton First
+MES - Trainer/Client
+INOR - node + express serving html
+KALE - Index Html/ client routing
+EVAD - db/collections/ORM
+
 What are you most excited about for this project? (response from each teammate)
+INOR - really like idea, lots of potential, learning about group dynamics
+MES - building something to show employers, working on a team, cool idea
+KALE - work in engineering group, see what 4 minds can create together
+EVAD - Learning how to work in a group, learn how to build a project with 4 people
+
 What are you most nervous about for this project? (response from each teammate)
+INOR - duplicate tasks, miss out on tasks, work distribution 
+MES - flow of project, running out of time
+KALE - communication between teammates, work distribution 
+EVAD - rabbit hole, communication, work distribution
+
 What's your GitHub workflow going to be? (merge or rebase?)
+rebase?
+
