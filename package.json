@@ -1,26 +1,6 @@
 {
   "name": "hrr18-shock",
   "version": "1.0.0",
-<<<<<<< HEAD
-  "description": "README.md",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ItsDavidThai/hrr18-shock.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ItsDavidThai/hrr18-shock/issues"
-  },
-  "homepage": "https://github.com/ItsDavidThai/hrr18-shock#readme",
-  "dependencies": {
-    "mongodb": "^2.2.9",
-    "mongoose": "^4.5.10"
-=======
   "description": "Personl Trainer Application, Client Management",
   "main": "index.js",
   "scripts": {
@@ -40,7 +20,8 @@
   },
   "homepage": "https://github.com/hrr18-shock/hrr18-shock#readme",
   "dependencies": {
-    "express": "^4.14.0"
->>>>>>> b4ac0ff9047e8751f77207315c7e4855c729da38
+    "express": "^4.14.0",
+    "mongodb": "^2.2.9",
+    "mongoose": "^4.5.10"
   }
 }
