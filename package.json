@@ -4,6 +4,7 @@
   "description": "Personl Trainer Application, Client Management",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "testhere"
   },
   "repository": {
