@@ -18,3 +18,4 @@ angular.module('PTapp', [
       url: "/signup",
       templateUrl: ""
     });
+  });
