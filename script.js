@@ -12,10 +12,10 @@ angular.module('PTapp', [
     })
     .state('signin', {
       url: "/signin",
-      templateUrl: ""
+      templateUrl: "./signin.html"
     })
     .state('signup',{
       url: "/signup",
-      templateUrl: ""
+      templateUrl: "./signup.html"
     });
   });
