@@ -14,8 +14,12 @@ angular.module('PTapp', [
       url: "/signin",
       templateUrl: "./models/signin.html"
     })
-    .state('signup',{
+    .state('signup', {
       url: "/signup",
       templateUrl: "./models/signup.html"
-    });
+    })
+    .state('trainer', {
+      url: "/trainer",
+      templateUrl: "./models/trainer.html"
+    })
   });
