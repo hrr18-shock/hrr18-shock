@@ -2,9 +2,45 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+
     nodemon: {
       dev: {
         script: 'index.js'
+      }
+    },
+
+    concat: {
+      options: {
+    // define a string to put between each file in the concatenated output
+      separator: ';'
+      },
+    dist: {
+    // the files to concatenate
+      src: ['app/**/*.js', 'app/*.js'],
+    // the location of the resulting JS file
+      dest: 'app/dist/<%= pkg.name %>.js'
+    }
+
+    },
+
+    uglify: {
+      options: {
+    // the banner is inserted at the top of the output
+        banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
+      },
+    dist: {
+      files: {
+        'app/dist/<%= pkg.name %>.min.js': ['<%= concat.dist.dest %>']
+        }
+      }
+    },
+
+    mochaTest: {
+      test: {
+        options: {
+          reporter: 'spec'
+        },
+        src: ['test/*.js']
       }
     },
 
@@ -31,12 +67,16 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-nodemon');
-
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
   ///// main grunt tasks
 
   grunt.registerTask('build', [
-    'jshint'
+    'jshint',
+    'concat',
+    'uglify'
   ]);
 
 };
