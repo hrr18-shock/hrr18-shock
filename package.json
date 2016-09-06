@@ -22,6 +22,10 @@
   "homepage": "https://github.com/hrr18-shock/hrr18-shock#readme",
   "dependencies": {
     "express": "^4.14.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2",
     "mongodb": "^2.2.9",
     "mongoose": "^4.5.10"
   }
