@@ -6,11 +6,11 @@ var expect = require('chai').expect;
 var app = require('../index.js');
 
 // this is where the connection to the DB is
-var db = require('../app/config');
+var db = require('../db/schema');
 
 // this is the link to the schema file (or files?)
-var User =
-var Trainer =
+var User = 'thisNeedsToBeChanged';
+var Trainer = 'thisNeedsToBeChanged';
 
 describe('', function(){
 
