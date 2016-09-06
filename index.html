@@ -1,9 +1,27 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="PTapp">
 <head>
-  <title>Do you even git?!?!</title>
+  <title>Personal Trainer App</title>
+</head>
+  <title>Personal Trainer App</title>
 </head>
 <body>
-  <h1>Say no to generators...</h1>
+  <h1>Generic Header</h1>
+  <nav>
+    <div>
+        <h3>Generic Links</h3>
+    </div>
+    <ul>
+        <li><a ui-sref="home">Generic Home Link</a></li>
+        <li><a ui-sref="signin">Generic Log In Link</a></li>
+        <li><a ui-sref="signup">Generic Sign up Link</a></li>
+    </ul>
+  </nav>
+
+  <div ui-view></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
