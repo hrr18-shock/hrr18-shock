@@ -4,7 +4,7 @@ var path = require('path');
 
 var port = process.env.PORT || '8080';
 
-app.use(express.static(__dirname + 'app'));
+app.use(express.static('app'));
 
 // During my MVP, an HIR told me I should always use static when creating a Single Page App.
 
