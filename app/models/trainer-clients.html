@@ -15,7 +15,7 @@
   <h3>Search Clients</h3>
   <input ng-model="searchText" class="form-control" placeholder="Search Clients">
 </div>
-<h3>Select Client to Veiw Workouts</h3>
+<h3>Select Client to View Workouts</h3>
 <div ng-repeat="client in clients | filter:searchText">
   <a href='./#/trainer/trainer-workouts'><h4 style="padding-left: 30px; border: 1px solid lightgrey; border-radius: 10px; padding-top:5px; padding-bottom:5px; background-color: #ececec;">{{client.name}}</h4></a>
 </div>
