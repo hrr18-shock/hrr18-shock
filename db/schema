@@ -8,7 +8,10 @@ on a separate terminal run
 to run this file to create tables run
 //~ psql shock -f db/schema
 */
-
+/*
+you can run this in psql but this does not have to be ran!!
+run the sequelize file and the sync method will create these tables
+*/
 /*Serial  is postgres way of autoincrementing an id*/
 CREATE TABLE users (
           id            SERIAL PRIMARY KEY,
