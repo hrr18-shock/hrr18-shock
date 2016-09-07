@@ -8,7 +8,7 @@ angular.module('PTapp', [
   $stateProvider
     .state('home', {
       url: "/home",
-      templateUrl: "" // Need to decide on a home page
+      templateUrl: "./models/home.html" // Need to decide on a home page
     })
     .state('signin', {
       url: "/signin",
@@ -22,4 +22,8 @@ angular.module('PTapp', [
       url: "/trainer",
       templateUrl: "./models/trainer.html"
     })
+    .state('client', {
+      url: "/client",
+      templateUrl: "./models/client.html"
+    });
   });
