@@ -1,10 +1,12 @@
 <div id='signin'>
-  <h1>signin</h1>
-  <!-- Need to create a controller with signin function -->
-  <form name="signinForm" ng-submit='signin()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signin</button>
-  </form>
+  <h1>Sign in</h1>
+
+  <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+  </fb:login-button>
+
+  <div id="status">
+  </div>
+
   <a href="#/signup">Don't have an account? <strong>Signup</strong> ...</a>
+
 </div>
