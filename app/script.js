@@ -1,6 +1,12 @@
 angular.module('PTapp', [
-  'ui.router'
+  'ui.router',
+  'trainerConnect'
   ])
+
+  .controller('authController', function($scope){
+
+  })
+
   .config(function($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise("/home");
@@ -20,10 +26,12 @@ angular.module('PTapp', [
     })
     .state('trainer', {
       url: "/trainer",
+      controller: 'TrainerCtrl',
       templateUrl: "./models/trainer.html"
     })
     .state('client', {
       url: "/client",
+      controller: 'TrainerCtrl',
       templateUrl: "./models/client.html"
     });
   });
