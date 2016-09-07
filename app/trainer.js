@@ -1,4 +1,4 @@
-var app = angular.module('trainerConnect', []);
+var app = angular.module('trainerConnect', ['ngYoutubeEmbed']);
 
 app.factory('clients', [function(){
   var o = {
@@ -34,5 +34,8 @@ app.controller('TrainerCtrl', [
       $scope.clients.push({name: $scope.name, workouts: []});
       $scope.name = '';
     };
+    // video hardcoded
+    $scope.link = 'https://www.youtube.com/watch?v=IODxDxX7oi4';
+
   }
 ]);
