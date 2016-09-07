@@ -1,11 +1,25 @@
+/*
+postgres setup
+brew install -g postgres
+run this command to start the server postgres
+//~ postgres -D /usr/local/var/postgres
+on a separate terminal run
+//~ createdb shock
+to run this file to create tables run
+//~ psql shock -f db/schema
+*/
+
+/*Serial  is postgres way of autoincrementing an id*/
 CREATE TABLE users (
           id            SERIAL PRIMARY KEY,
           first_name    VARCHAR(100) NOT NULL,
           last_name     VARCHAR(100) NOT NULL,
           username      VARCHAR(500) NOT NULL,
           address       VARCHAR(500) NOT NULL,
-          phone_number  INTEGER NULL,
-          email         VARCHAR(500) NULL
+          phone_number  VARCHAR(100) NULL,
+          email         VARCHAR(500) NULL,
+          createdAt     DATE NOT NULL,
+          updatedAt     DATE NOT NULL
         );
 CREATE TABLE trainers (
           id            SERIAL PRIMARY KEY,
