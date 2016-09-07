@@ -1,5 +1,38 @@
-// looking sharp test Test bibopbop
-// changing the schema
-// hello
-// change 2
-// change
+CREATE TABLE users (
+          id            SERIAL PRIMARY KEY,
+          first_name    VARCHAR(100) NOT NULL,
+          last_name     VARCHAR(100) NOT NULL,
+          username      VARCHAR(500) NOT NULL,
+          address       VARCHAR(500) NOT NULL,
+          phone_number  INTEGER NULL,
+          email         VARCHAR(500) NULL
+        );
+CREATE TABLE trainers (
+          id            SERIAL PRIMARY KEY,
+          id_user       INTEGER REFERENCES users (id)
+        );
+CREATE TABLE trainer_client (
+          id            SERIAL PRIMARY KEY,
+          id_trainer    INTEGER REFERENCES trainers (id),
+          id_user       INTEGER REFERENCES users (id)
+        );
+CREATE TABLE exercises (
+          id            SERIAL PRIMARY KEY,
+          name          VARCHAR(500) NOT NULL,
+          type          VARCHAR(500) NOT NULL,
+          description   VARCHAR(1000) NOT NULL,
+          id_trainer    INTEGER REFERENCES trainers (id)
+        );
+CREATE TABLE workout_list (
+          id            SERIAL PRIMARY KEY,
+          date_created  DATE NOT NULL,
+          comments      VARCHAR(1000) NOT NULL,
+          id_user       INTEGER REFERENCES users (id),
+          id_trainer    INTEGER REFERENCES trainers (id)
+        );
+CREATE TABLE workouts (
+          id              SERIAL PRIMARY KEY,
+          id_workout_list INTEGER REFERENCES workout_list (id),
+          comments        VARCHAR(1000) NOT NULL,
+          id_exercises    INTEGER REFERENCES exercises (id)
+        );
