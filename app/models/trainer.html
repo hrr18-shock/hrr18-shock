@@ -12,118 +12,120 @@
         <div>
           <div class="form-group">
             <div style="text-align:center;">
-              <h2>Workouts</h2>
+              <h2>Create Workouts</h2>
             </div>
             <hr>
             <form ng-submit="createWorkout()">
               <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; padding-top: 1px; margin-bottom: 15px;">
               <h3>Select Client</h3>
-                <select class="form-control">
+                <!-- <select class="form-control">
                   <option value="robinKim" selected>Robin Kim</option>
                   <option value="codyDaig">Cody Daig</option>
-                  <!-- Place Clients in the Form -->
+
+                </select> -->
+                <select class="form-control" ng-model="clientSelect" ng-options="client.name for client in clients">
                 </select>
               </div>
               <button type="submit" class="btn btn-primary">Add Workout</button>
-              <h5>Select Exercise 1</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 1</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 2</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 2</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 3</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 3</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 4</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 4</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 5</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 5</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 6</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 6</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 7</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 7</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 8</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 8</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 9</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 9</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
-              <h5>Select Exercise 10</h5>
-              <select class="form-control">
-                <option value="pushups" selected>Pushups</option>
-                <option value="pullups">Pullups</option>
-                <!-- Place Exercises in the Form -->
-              </select>
-              <h5>Add Description</h5>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+              <div style="border: 1px solid lightgrey; border-radius: 10px; padding: 5px; margin-top: 5px;">
+                <h5>Select Exercise 10</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: Squats">
+                </div>
+                <h5>Add Description</h5>
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="example: 5 sets of 10 reps">
+                </div>
               </div>
             </form>
           </div>
