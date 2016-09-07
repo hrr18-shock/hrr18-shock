@@ -7,6 +7,20 @@ app.factory('clients', [function(){
   return o;
 }]);
 
+app.config([
+  '$stateProvider',
+  '$urlRouterProvider',
+  function($stateProvider, $urlRouterProvider) {
+
+  $urlRouterProvider.otherwise("clients");
+
+  $stateProvider
+    .state('clients', {
+      templateUrl: './models/trainer-clients.html'
+    })
+
+}]);
+
 app.controller('TrainerCtrl', [
   '$scope',
   'clients',
