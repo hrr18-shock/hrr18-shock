@@ -1,4 +1,22 @@
 /*
+NEW one
+
+postgres setup
+brew install -g postgres
+run this command to start the server postgres
+//~ postgres -D /usr/local/var/postgres
+on a separate terminal run
+//~ createdb shock
+to create tables from the sequelize sync run
+//~ node index.js
+
+
+if you need to drop all tables use the postgres shell by typing in
+//~ psql shock
+//~ DROP SCHEMA public cascade;
+//~ CREATE SCHEMA public;
+
+OLD
 postgres setup
 brew install -g postgres
 run this command to start the server postgres
