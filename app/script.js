@@ -35,7 +35,7 @@ angular.module('PTapp', [
       controller: 'TrainerCtrl'
     })
     .state('trainer.workouts', {
-      url: '/trainer-workouts',
+      url: '/trainer-workouts/{id}',
       templateUrl: './models/trainer-workouts.html',
       controller: 'TrainerCtrl'
     })
