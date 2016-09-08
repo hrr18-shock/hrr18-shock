@@ -35,6 +35,7 @@ app.controller('TrainerCtrl', [
       $scope.name = '';
     };
     // video hardcoded
+    $scope.linkS = ['https://www.youtube.com/watch?v=IODxDxX7oi4', 'https://www.youtube.com/watch?v=lQRsYgRafA8&feature=youtu.be'];
     $scope.link = 'https://www.youtube.com/watch?v=IODxDxX7oi4';
 
   }
