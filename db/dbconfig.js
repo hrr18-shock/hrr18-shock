@@ -1,7 +1,10 @@
 /*
-~~~ Pre Setup
+--- Pre Setup
 npm install sequelize -S
 npm install pg pg-hstore -S
+
+--- to run the db from heroku type in the command
+~ heroku pg:psql --app shock18
 */
 var models = require('./models.js');
 // checks if database is already defined

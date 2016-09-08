@@ -52,10 +52,12 @@ exports.Workouts = db.define('workouts', {
   updatedAt     : Sequelize.DATE
 })
 
+exports.Trainer_Client = db.define('trainer_client', {
+  id              :{ type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
+  createdAt     : Sequelize.DATE,
+  updatedAt     : Sequelize.DATE
+})
 // link relationships in place of junction table
-exports.Users.belongsToMany(exports.Trainers, {through:'Trainer_client'});
-exports.Trainers.belongsToMany(exports.Users, {through:'Trainer_client'});
+exports.Users.belongsToMany(exports.Trainers, {through:'trainer_client', foreignKey: exports.id_user});
+exports.Trainers.belongsToMany(exports.Users, {through:'trainer_client', foreignKey:exports.id_trainer});
 
-console.log(db)
-//TESTING DISREGARD
-// exports.Users.create({first_name:'david1', last_name:'dave1', username:'helloworld', address:'1234 hello world', phone_number:3214443333, email:'helloworld@gmail.com'})
