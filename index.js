@@ -20,7 +20,7 @@ app.use(express.static('app'));
 
 // Sync models with database then open port
 db.sequelize.sync().then(function() {
-
+  console.log(port)
   app.listen(port, function () {
     console.log('Example app listening on port 8080!');
   });
