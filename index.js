@@ -3,7 +3,8 @@ var app = express();
 var path = require('path');
 
 var port = process.env.PORT || '8080';
-
+var models = require('./db/models.js')
+var db = require('./db/dbconfig.js')
 app.use(express.static('app'));
 
 // During my MVP, an HIR told me I should always use static when creating a Single Page App.
@@ -13,6 +14,14 @@ app.use(express.static('app'));
 //     res.sendFile(path.join(__dirname + '/index.html'));
 // });
 
-app.listen(port, function () {
-  console.log('Example app listening on port 8080!');
+
+
+
+
+// Sync models with database then open port
+db.sequelize.sync().then(function() {
+
+  app.listen(port, function () {
+    console.log('Example app listening on port 8080!');
+  });
 });
