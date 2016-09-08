@@ -22,6 +22,6 @@ app.use(express.static('app'));
 db.sequelize.sync().then(function() {
   console.log(port)
   app.listen(port, function () {
-    console.log('Example app listening on port 8080!');
+    console.log(port,' is running fine!');
   });
 });
