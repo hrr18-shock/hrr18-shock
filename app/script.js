@@ -14,7 +14,7 @@ angular.module('PTapp', [
   $stateProvider
     .state('home', {
       url: "/home",
-      templateUrl: "./models/home.html" // Need to decide on a home page
+      templateUrl: "./models/home.html"
     })
     .state('signin', {
       url: "/signin",
