@@ -60,6 +60,8 @@ module.exports = function(grunt) {
       files: [
         'app/*.js',
         'app/**/*.js',
+        'controllers/*.js',
+        'db/*.js',
         '*.js'
       ],
       options: {
@@ -87,9 +89,7 @@ module.exports = function(grunt) {
   ///// main grunt tasks
 
   grunt.registerTask('build', [
-    'jshint',
-    'concat',
-    'uglify'
+    'jshint'
   ]);
 
   grunt.registerTask('test', [
