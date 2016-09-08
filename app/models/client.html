@@ -3,10 +3,10 @@
     <div class="row">
       <div  style="margin-left:auto; margin-right:auto; border: 1px solid lightgrey; border-radius: 10px 0px 0px 10px; padding:10px; width:75%; margin-top: 30px; margin-bottom: 50px; overflow-y: scroll; height:65vh; background-color:white">
 
-          <div style="text-align:center;">
-            <h2>Workouts</h2>
-            <ng-youtube-embed url="link" width="100%"></ng-youtube-embed>
-
+          <h2>Workouts</h2>
+          <div style="text-align:center;" ng-repeat="vid in linkS">
+           <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
+            <ng-youtube-embed url="vid" width="100%"></ng-youtube-embed>
               <input type="text" name="link" placeholder="Change URL" ng-model="link">
 
           </div>
