@@ -37,8 +37,8 @@ if (!global.hasOwnProperty('db')) {
   }
 }
 
+// console.log(global.db)
 module.exports = global.db
-
 
 
 

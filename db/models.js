@@ -56,6 +56,6 @@ exports.Workouts = db.define('workouts', {
 exports.Users.belongsToMany(exports.Trainers, {through:'Trainer_client'});
 exports.Trainers.belongsToMany(exports.Users, {through:'Trainer_client'});
 
-
+console.log(db)
 //TESTING DISREGARD
 // exports.Users.create({first_name:'david1', last_name:'dave1', username:'helloworld', address:'1234 hello world', phone_number:3214443333, email:'helloworld@gmail.com'})
