@@ -24,6 +24,11 @@
               <button type="submit" class="btn btn-primary">Add Workout</button>
               <div class="addExerciseBoxes">
                 <h5>Select Exercise 1</h5>
+
+                  <select class="form-control" ng-model="e1">
+                    <option ng-repeat="option in exNames.availableOptions" value="{{option}}">{{option.name}}</option>
+                  </select>
+
                 <div class="form-group">
                   <input type="text" class="form-control" placeholder="example: Squats" ng-model="e1">
                 </div>
