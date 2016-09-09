@@ -5,22 +5,25 @@ angular.module('PTapp', [
 
   .controller('signupController', function($scope, $http, signupFactory){
 
+    $scope.trainers = ['Bob', 'Jim', 'Wes'];
+
     $scope.signup = function(){
       FB.api('/me', function(response){
-        signupFactory($scope.role, response.id, response.name);
+        signupFactory($http, $scope.role, response.id, response.name, $scope.trainer);
       })
     }
   })
 
   .factory('signupFactory', function(){
-    return function(userRole, userID, userName){
-      console.log(userRole, userID, userName);
+    return function($http, userRole, userID, userName, trainer){
+      console.log(userRole, userID, userName, trainer);
       $http({
         method: 'POST',
         url: '/create',
-        data: {userType: userType,
+        data: {userType: userRole,
                userID:   userID,
-               userName: userName
+               userName: userName,
+               trainer:  trainer
         }
       }).then(function(data){
         console.log('Your user was added', data);
