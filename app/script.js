@@ -43,5 +43,5 @@ angular.module('PTapp', [
       url: "/client",
       controller: 'TrainerCtrl',
       templateUrl: "./models/client.html"
-    });
+    })
   });
