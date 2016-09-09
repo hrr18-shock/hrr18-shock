@@ -58,7 +58,7 @@ These commands will help you do this:
 git checkout -b `your-branch-name`
 ```
 
-### Make commits to your feature branch. 
+### Make commits to your feature branch.
 
 Prefix each commit like so
   - (feat) Add a new feature
@@ -173,6 +173,33 @@ This is just to help you organize your process
 
 If you follow all of these guidelines and make good changes, you should have
 no problem getting your changes merged in.
+
+
+
+
+
+## Postgres setup
+
+brew install -g postgres
+run this command to start the server postgres
+//~ postgres -D /usr/local/var/postgres
+on a separate terminal run
+//~ createdb shock
+to create tables from the sequelize sync run
+//~ node index.js
+
+
+if you need to drop all tables use the postgres shell by typing in
+//~ psql shock
+//~ DROP SCHEMA public cascade;
+//~ CREATE SCHEMA public
+
+to run the db from heroku type in the command
+~ heroku pg:psql --app shock18
+
+
+
+
 
 
 <!-- Links -->
