@@ -57,7 +57,7 @@ exports.Trainer_Client = db.define('trainer_client', {
   createdAt     : Sequelize.DATE,
   updatedAt     : Sequelize.DATE
 })
-// link relationships in place of junction table
+// link relationships for junction table
 exports.Users.belongsToMany(exports.Trainers, {through:'trainer_client', foreignKey: exports.id_user});
 exports.Trainers.belongsToMany(exports.Users, {through:'trainer_client', foreignKey:exports.id_trainer});
 
