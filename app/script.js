@@ -4,11 +4,17 @@ angular.module('PTapp', [
   ])
 
   .controller('signupController', function($scope, $http, signupFactory){
-    $scope.signup = signupFactory;
+
+    $scope.signup = function(){
+      FB.api('/me', function(response){
+        signupFactory($scope.role, response.id, response.name);
+      })
+    }
   })
 
   .factory('signupFactory', function(){
-    return function(userType, userID, userName){
+    return function(userRole, userID, userName){
+      console.log(userRole, userID, userName);
       $http({
         method: 'POST',
         url: '/create',
