@@ -48,11 +48,60 @@ module.exports = {
           first_name: req.firstName, last_name:req.lastName, address:req.address, phone_number:req.phoneNumber, email:req.email, username:req.username
         }
       }).then(function(user){
-        res.send(user)
+        // res.send(user)
       });
     },
-    login: function(){
-
+    userLogin: function(req, res){
+      models.Users.find({where:{
+        $or:[
+          {
+            username: req.body.username
+          },
+          {
+            email: req.body.email
+          }
+        ] }
+      }).then(function(user){
+        if(user){
+          res.send(user)
+        } else {
+          res.send('invalid user')
+        }
+      }).catch(function(err){
+        res.send('invalid user')
+        console.log(err)
+      });
+    },
+    trainerLogin: function(req, res){
+      models.Users.find({where:{
+        $or:[
+          {
+            username: req.body.username
+          },
+          {
+            email: req.body.email
+          }
+        ] }
+      }).then(function(user){
+        console.log(user.dataValues.id)
+        models.Trainers.findOne({where:
+          {id_user: user.dataValues.id}
+        }).then(function(trainer){
+          console.log(trainer)
+          if(trainer){
+            res.send('trainer has been found')
+          } else {
+            res.send('not trainer')
+          }
+        }).catch(function(err){
+          //this catch statement doesnt seem to be working
+          console.log(err)
+          // res.send('not a trainer')
+        })
+      }).catch(function(err){
+        res.send('invalid user')
+        console.log(err)
+      });
     }
   },
   exercises:{
