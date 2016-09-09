@@ -3,8 +3,25 @@ angular.module('PTapp', [
   'trainerConnect'
   ])
 
-  .controller('authController', function($scope){
+  .controller('signupController', function($scope, $http, signupFactory){
+    $scope.signup = signupFactory;
+  })
 
+  .factory('signupFactory', function(){
+    return function(userType, userID, userName){
+      $http({
+        method: 'POST',
+        url: '/create',
+        data: {userType: userType,
+               userID:   userID,
+               userName: userName
+        }
+      }).then(function(data){
+        console.log('Your user was added', data);
+      }, function(data){
+        console.error(data);
+      })
+    }
   })
 
   .config(function($stateProvider, $urlRouterProvider) {
@@ -22,6 +39,7 @@ angular.module('PTapp', [
     })
     .state('signup', {
       url: "/signup",
+      controller: 'signupController',
       templateUrl: "./models/signup.html"
     })
     .state('trainer', {

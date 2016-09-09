@@ -14,7 +14,13 @@ app.use(express.static('app'));
 //     res.sendFile(path.join(__dirname + '/index.html'));
 // });
 
+app.get('/fetch', function(req, res){
+  // DB helper function to retrieve user by name or id
+})
 
+app.post('/create', function(req, res){
+  // DB helper function to create a new user
+})
 
 
 
