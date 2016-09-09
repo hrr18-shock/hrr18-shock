@@ -98,8 +98,17 @@ app.controller('TrainerCtrl', [
     };
 
     // video hardcoded
-    $scope.linkS = ['https://www.youtube.com/watch?v=IODxDxX7oi4', 'https://www.youtube.com/watch?v=lQRsYgRafA8&feature=youtu.be', 'https://www.youtube.com/watch?v=Dy28eq2PjcM', 'https://www.youtube.com/watch?v=-4qRntuXBSc', 'https://www.youtube.com/watch?v=U4BS9EXvfyg&index=5&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8', 'https://www.youtube.com/watch?v=5a6bRnvjlgg&index=6&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8', 'https://www.youtube.com/watch?v=-phbNTs-SwU&index=7&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8'];
-    $scope.link = 'https://www.youtube.com/watch?v=IODxDxX7oi4';
+    $scope.linkS = [{video: 'https://www.youtube.com/watch?v=IODxDxX7oi4',
+  description: 'do this a lot'},
+  {video: 'https://www.youtube.com/watch?v=lQRsYgRafA8&feature=youtu.be',
+  description: 'this helps too'},
+  {video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM',
+  description: 'ex2'},
+  'https://www.youtube.com/watch?v=-4qRntuXBSc',
+  'https://www.youtube.com/watch?v=U4BS9EXvfyg&index=5&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
+  'https://www.youtube.com/watch?v=5a6bRnvjlgg&index=6&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
+  'https://www.youtube.com/watch?v=-phbNTs-SwU&index=7&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8'];
+    $scope.linkS.name = ['Ex1', 'Ex2', 'Ex3', 'Ex4', 'Ex5', 'Ex6', 'Ex7'];
 
   }
 ]);

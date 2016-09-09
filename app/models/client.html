@@ -6,8 +6,8 @@
           <h2>Workouts</h2>
           <div style="text-align:center;" ng-repeat="vid in linkS">
            <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
-            <ng-youtube-embed url="vid" width="100%"></ng-youtube-embed>
-              <input type="text" name="link" placeholder="Change URL" ng-model="link">
+            <ng-youtube-embed url="vid.video" width="100%"></ng-youtube-embed>
+              <p>{{ vid.description }}</p>
 
           </div>
           <hr>
