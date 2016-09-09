@@ -7,6 +7,38 @@ app.factory('clients', [function(){
   return o;
 }]);
 
+app.factory('userRetriever', function(){
+  return function($location, $http){
+    FB.getLoginStatus(function(response) {
+      console.log('You are', response.status);
+      if(response.status !== 'connected'){
+        $location.$$path = '/signin';
+      } else {
+        // MAKE REQUEST TO SERVER TO GET USER'S DATA
+        FB.api('/me', function(response){
+          $http({
+            method: 'GET',
+            url: '/fetch',
+            data: response.id
+          }).then(function(data) {
+            // IF USER DOES NOT EXIST
+            //if(!data.user){
+              // REDIRECT TO SIGNUP PAGE
+              //$location.$$path = '/signup';
+            //} else {
+              // PARSE THE DATA AND USE IT TO FILL OUT THE PAGE
+              // $scope.workouts = data.user.workouts ?????????????
+            //}
+            //}, function(data) {
+              //console.error(data);
+            });
+        })
+
+        }
+      });
+  }
+})
+
 app.config([
   '$stateProvider',
   '$urlRouterProvider',
@@ -26,32 +58,10 @@ app.controller('TrainerCtrl', [
   'clients',
   '$location',
   '$http',
-  function($scope, clients, $location, $http){
+  'userRetriever',
+  function($scope, clients, $location, $http, userRetriever){
 
-    FB.getLoginStatus(function(response) {
-      console.log('You are', response.status);
-      if(response.status !== 'connected'){
-        $location.path = '/signin';
-      } else {
-        // MAKE REQUEST TO SERVER TO GET USER'S DATA
-        $http({
-          method: 'GET',
-          url: '/fetch',
-          data: response.authResponse.userID
-        }).then(function(data) {
-          // IF USER DOES NOT EXIST
-          if(!data.user){
-            // REDIRECT TO SIGNUP PAGE
-            $location.path = '/signup';
-          } else {
-            // PARSE THE DATA AND USE IT TO FILL OUT THE PAGE
-            $scope.workouts = data.user.workouts // ?????????????
-          }
-          }, function(data) {
-            console.error(data);
-          });
-        }
-      });
+    userRetriever($location, $http);
 
     $scope.clients = clients.clients;
 
