@@ -1,5 +1,5 @@
 <div class="form-group">
-  <div style="text-align:center;">
+  <div class="centerText">
     <h2>Clients</h2>
   </div>
   <hr>
@@ -17,5 +17,5 @@
 </div>
 <h3>Select Client to View Workouts</h3>
 <div ng-repeat="client in clients | filter:searchText">
-  <a href='./#/trainer/trainer-workouts/{{client.name}}'><h4 ng-model="current" style="padding-left: 30px; border: 1px solid lightgrey; border-radius: 10px; padding-top:5px; padding-bottom:5px; background-color: #ececec;">{{client.name}}</h4></a>
+  <a href='./#/trainer/trainer-workouts/{{client.name}}'><h4 ng-model="current" class="clientBoxes">{{client.name}}</h4></a>
 </div>

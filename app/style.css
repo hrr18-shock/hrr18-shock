@@ -1,0 +1,89 @@
+/*Client and Trainer Background*/
+
+.view {
+  background-color:#4F97CE;
+  height:100vh;
+}
+
+/*Client*/
+
+#clientContainer {
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid lightgrey;
+  border-radius: 10px 0px 0px 10px;
+  padding:10px;
+  width:75%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  height:75vh;
+  background-color:white;
+}
+
+.centerText {
+  text-align:center;
+}
+
+/*Trainer-Clients*/
+
+.clientBoxes {
+  padding-left: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color: #ececec;
+}
+
+/*Trainer-Workouts*/
+
+#viewAllClients {
+  width:100%;
+  font-size: 25px;
+  border-radius: 5px;
+}
+
+/*Trainer*/
+
+#leftContainer {
+  float:left;
+  border: 1px solid lightgrey;
+  border-radius: 10px 0px 0px 10px;
+  padding:10px;
+  width:45%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  height:65vh;
+  background-color:white;
+}
+
+#rightContainer {
+  float:right;
+  border: 1px solid lightgrey;
+  border-radius: 10px 0px 0px 10px;
+  padding:10px;
+  width:45%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  height:65vh;
+  background-color:white;
+}
+
+#selectClientBox {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 5px;
+  padding-top: 1px;
+  margin-bottom: 15px;
+}
+
+.addExerciseBoxes {
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 5px;
+}
+

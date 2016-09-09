@@ -1,10 +1,10 @@
-<div style="background-color:#4F97CE; height:100vh" ng-app="trainerConnect" ng-controller="TrainerCtrl">
+<div class="view" ng-app="trainerConnect" ng-controller="TrainerCtrl">
   <div class="container">
     <div class="row">
-      <div  style="margin-left:auto; margin-right:auto; border: 1px solid lightgrey; border-radius: 10px 0px 0px 10px; padding:10px; width:75%; margin-top: 30px; margin-bottom: 50px; overflow-y: scroll; height:65vh; background-color:white">
+      <div  id="clientContainer">
 
           <h2>Workouts</h2>
-          <div style="text-align:center;" ng-repeat="vid in linkS">
+          <div class="centerText" ng-repeat="vid in linkS">
            <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
             <ng-youtube-embed url="vid.video" width="100%"></ng-youtube-embed>
               <p>{{ vid.description }}</p>
