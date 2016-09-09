@@ -46,6 +46,27 @@ app.controller('TrainerCtrl', [
       });
       $scope.clients[index] = $scope.clientSelect;
       console.log($scope.clients[index])
+      $scope.clientSelect = '';
+      $scope.e1 = '';
+      $scope.d1 = '';
+      $scope.e2 = '';
+      $scope.d2 = '';
+      $scope.e3 = '';
+      $scope.d3 = '';
+      $scope.e4 = '';
+      $scope.d4 = '';
+      $scope.e5 = '';
+      $scope.d5 = '';
+      $scope.e6 = '';
+      $scope.d6 = '';
+      $scope.e7 = '';
+      $scope.d7 = '';
+      $scope.e8 = '';
+      $scope.d8 = '';
+      $scope.e9 = '';
+      $scope.d9 = '';
+      $scope.e10 = '';
+      $scope.d10 = '';
     };
 
     // video hardcoded
