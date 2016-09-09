@@ -1,10 +1,17 @@
 <div id='signup'>
-  <h1>signup</h1>
+  <h1>Sign up</h1>
   <!-- Need to create a controller with signup function -->
-  <form name="signupForm" ng-submit='signup()'>
-    <input type='text' ng-model='user.username'>
-    <input type="password" ng-model='user.password'>
-    <button>signup</button>
+  <form>
+    <input type="radio" name="gender" value="male" checked> Trainer<br>
+    <input type="radio" name="gender" value="female"> Client
   </form>
+
+  <h3>If you don't see the Facebook button, refresh the page</h3>
+
+  <div class="fb-login-button" data-max-rows="1" data-size="xlarge" data-scope="public_profile,email" data-show-faces="false" data-auto-logout-link="true" onlogin="signup(*somehow get info from check boxes above*, *get the userID*, *get the user name*);"></div>
+
+  <div id="status">
+  </div>
+
   <a href="#/signin">Already have an account? <strong>Signin</strong> ...</a>
 </div>

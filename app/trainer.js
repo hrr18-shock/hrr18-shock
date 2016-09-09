@@ -24,7 +24,35 @@ app.config([
 app.controller('TrainerCtrl', [
   '$scope',
   'clients',
-  function($scope, clients){
+  '$location',
+  '$http',
+  function($scope, clients, $location, $http){
+
+    FB.getLoginStatus(function(response) {
+      console.log('You are', response.status);
+      if(response.status !== 'connected'){
+        $location.path = '/signin';
+      } else {
+        // MAKE REQUEST TO SERVER TO GET USER'S DATA
+        $http({
+          method: 'GET',
+          url: '/fetch',
+          data: response.authResponse.userID
+        }).then(function(data) {
+          // IF USER DOES NOT EXIST
+          if(!data.user){
+            // REDIRECT TO SIGNUP PAGE
+            $location.path = '/signup';
+          } else {
+            // PARSE THE DATA AND USE IT TO FILL OUT THE PAGE
+            $scope.workouts = data.user.workouts // ?????????????
+          }
+          }, function(data) {
+            console.error(data);
+          });
+        }
+      });
+
     $scope.clients = clients.clients;
 
     $scope.addClient = function(){
