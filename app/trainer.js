@@ -111,9 +111,12 @@ app.controller('TrainerCtrl', [
     $scope.exNames = {
     model: null,
     availableOptions: [
-      {id: '1', name: 'Option A'},
-      {id: '2', name: 'Option B'},
-      {id: '3', name: 'Option C'}
+      {id: '1', name: 'Squat'},
+      {id: '2', name: 'Deadlift'},
+      {id: '3', name: 'Bench press'},
+      {id: '4', name: 'Push-up'},
+      {id: '5', name: 'Shoulder press'},
+      {id: '6', name: 'Crunch'}
     ]
    };
 
