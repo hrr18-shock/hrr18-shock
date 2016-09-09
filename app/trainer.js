@@ -107,6 +107,19 @@ app.controller('TrainerCtrl', [
       $scope.d10 = '';
     };
 
+    // excercise names hardcoded for testing
+    $scope.exNames = {
+    model: null,
+    availableOptions: [
+      {id: '1', name: 'Squat'},
+      {id: '2', name: 'Deadlift'},
+      {id: '3', name: 'Bench press'},
+      {id: '4', name: 'Push-up'},
+      {id: '5', name: 'Shoulder press'},
+      {id: '6', name: 'Crunch'}
+    ]
+   };
+
     // video hardcoded
     $scope.linkS = [{video: 'https://www.youtube.com/watch?v=IODxDxX7oi4',
   description: 'do this a lot'},
