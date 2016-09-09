@@ -65,13 +65,13 @@ app.controller('TrainerCtrl', [
 
     $scope.clients = clients.clients;
 
-    $scope.addClient = function(){
-      if(!$scope.name || $scope.name === ''){
-        return;
-      }
-      $scope.clients.push({name: $scope.name, workouts: []});
-      $scope.name = '';
-    };
+    // $scope.addClient = function(){
+    //   if(!$scope.name || $scope.name === ''){
+    //     return;
+    //   }
+    //   $scope.clients.push({name: $scope.name, workouts: []});
+    //   $scope.name = '';
+    // };
 
     $scope.createWorkout = function(){
 
