@@ -9,49 +9,7 @@ Add FB ID to the database
 module.exports = {
   trainersView:{
     // done away with adding clients
-    // addClient: function(req, res){
-    //   models.Users.findOrCreate({where:{
-    //     $or:[
-    //       {
-    //         username: req.username
-    //       },
-    //       {
-    //         email: req.email
-    //       }
-    //     ] }, defaults: {
-    //       first_name: req.firstName, last_name:req.lastName, address:req.address, phone_number:req.phoneNumber, email:req.email, username:req.username
-    //     }
-    //   }).then(function(user){
-    //     res.send(user)
-    //   });
-    // },
-    // searchClients: function(req, res){
-
-    // },
-    createWorkouts: function(req, res){
-
-    },
-    viewWorkouts: function(req, res){
-
-    }
-
-  },
-  clientsView:{
-    grabWorkouts: function(req, res){
-
-    }
-  },
-  usersView:{
-    // params is an object that contains the properties of the user
-    // models.Users.create({first_name:params.firstName, last_name:params.lastName, username:params.username, address:params.address, phone_number:params.phoneNumber, email:params.email})
-    // TODO: add trainer during signup for now
-    displayTrainers: function(){
-
-    },
-    selectTrainer: function(){
-
-    },
-    signUp: function(req, res){
+/*    addClient: function(req, res){
       models.Users.findOrCreate({where:{
         $or:[
           {
@@ -64,6 +22,71 @@ module.exports = {
           first_name: req.firstName, last_name:req.lastName, address:req.address, phone_number:req.phoneNumber, email:req.email, username:req.username
         }
       }).then(function(user){
+        res.send(user)
+      });
+    },
+    searchClients: function(req, res){
+
+    },*/
+    createWorkouts: function(req, res){
+      models.Workout_list.create(
+        {
+          comments: req.body.comments,
+          user_id: req.body.user_id,
+          trainer_id: req.body.user_id.trainer_id
+        }
+      )
+      .then(function(result){
+
+      })
+    },
+    viewWorkouts: function(req, res){
+      models.Workout_list.findAll({where:{
+          $or:[
+            {
+              trainer_id: req.body.trainer_id
+            }
+          ] }
+        })
+      .then(function(response){
+
+      })
+    }
+
+  },
+  clientsView:{
+    grabWorkouts: function(req, res){
+
+    },
+
+  },
+  usersView:{
+    // TODO: add trainer during signup for now
+    displayTrainers: function(req, res){
+      db.sequelize.query('select * from users INNER JOIN trainers ON users.id = trainers.user_id').then(function(result){
+            res.send(result[0])
+      })
+    },
+    selectTrainer: function(req, res){
+      models.Trainer_Client.create({trainer_id: req.body.trainer_id,
+        user_id: req.body.user_id
+      }).then(function(response){
+        res.send('trainer selected')
+      })
+    },
+    signUp: function(req, res){
+      models.Users.findOrCreate({where:{
+        $or:[
+          {
+            username: req.body.username
+          },
+          {
+            email: req.body.email
+          }
+        ] }, defaults: {
+          first_name: req.body.firstName, last_name:req.body.lastName, address:req.body.address, phone_number:req.body.phoneNumber, email:req.body.email, username:req.body.username
+        }
+      }).then(function(user){
         // res.send(user)
       });
     },
@@ -71,10 +94,10 @@ module.exports = {
       models.Users.find({where:{
         $or:[
           {
-            username: req.body.username
+            username: req.params.username
           },
           {
-            email: req.body.email
+            email: req.params.email
           }
         ] }
       }).then(function(user){
@@ -92,16 +115,16 @@ module.exports = {
       models.Users.find({where:{
         $or:[
           {
-            username: req.body.username
+            username: req.params.username
           },
           {
-            email: req.body.email
+            email: req.params.email
           }
         ] }
       }).then(function(user){
         console.log(user.dataValues.id)
         models.Trainers.findOne({where:
-          {id_user: user.dataValues.id}
+          {user_id: user.dataValues.id}
         }).then(function(trainer){
           console.log(trainer)
           if(trainer){
@@ -127,55 +150,4 @@ module.exports = {
 
 
 }
-
-
-
-//testing grounds ignore past this point
-// working method
-
-
-      // models.Trainer_Client.find({/*include:[models.Users],*/ where:{
-      //     $or:[
-      //         {
-      //           trainerId: 2
-      //         }
-      //     ]
-      //   }
-      // }).then(function(user){
-      //   console.log(user)
-      // });
-/*personParams = {firstName:'kale', lastName:'evad', username:'kaleevad1', address:'9521 hello world', phoneNumber:'110399123', email:'kaleevade1@gmail.com'}
-// sample data inserts
-// this query creates a user
-models.Users.create({first_name:'david', last_name:'dave', username:'helloworld', address:'1234 hello world', phone_number:3214443333, email:'helloworld@gmail.com'})
-models.Users.create({first_name:'inor', last_name:'mes', username:'inormes', address:'1234 inormes', phone_number:'13546665', email:'inormes@gmail.com'})
-module.exports.usersView.signUp(personParams)
-
-
-// this query sets the user as a trainer
-models.Trainers.create({id_user:1})
-// this creates the trainer client relationship
-// for some reason the forerign key gets changed to userId and trainer Id
-models.Trainer_Client.create({userId:2, trainerId:2})
-
-models.Workout_list.create({
-  comments:'great workout day 1', id_user:2, id_trainer:2
-})
-
-models.Workouts.create({
-  comments:'5x10', id_workout_list: 4
-})
-
-
-*/
-
-// models.Trainers.findAll({ include:[models.Users] }).then(function(trainers){
-//   console.log(JSON.stringify(trainers))})
-
-  models.Trainers.findAll({ where:{id:2},include:[models.Users] }).then(function(trainers){
-  console.log(JSON.stringify(trainers))}).catch(function(err){ console.log(err)})
-
-
-
-
 

@@ -158,6 +158,7 @@ describe('database queries', function() {
   it('should return all trainers', function(done){
 
     db.sequelize.query('select users.username from users INNER JOIN trainers ON users.id = trainers.user_id').then(function(result){
+        console.log(result)
         expect(result[0][0].username === dummyUsers.one.username)
         expect(result[0][1].username === dummyUsers.two.username)
         done();
@@ -243,7 +244,7 @@ describe('database queries', function() {
         ] }
       })
     .then(function(res){
-      console.log(res)
+      // console.log(res)
       done();
     })
         //TODO: add expects
