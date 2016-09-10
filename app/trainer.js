@@ -22,7 +22,8 @@ app.factory('clients', ['$http', function($http){
   }
 
   o.addWorkout = function(trainerId, clientId, workout) {
-    return $http.post('/clients/' + trainerId + '/workout', workout).success(function(data){
+    return $http.post('/clients/' + trainerId + '/' + clientId + '/workout', workout).success(function(data){
+      console.log('this is the data: ', data)
       o.clientWorkouts.push(data);
     });
   };
@@ -87,7 +88,8 @@ app.controller('TrainerCtrl', [
 
     userRetriever($location, $http);
 
-    // need to figure out how to get current trainer id
+    // don't know if this is correct way to get trainer id
+    // FB.api('/me', function(res){return res.id });
     var trainerId = 4;
 
     clients.getClients(trainerId);
@@ -95,6 +97,7 @@ app.controller('TrainerCtrl', [
     $scope.clients = clients.clients;
 
     $scope.workouts = clients.clientWorkouts;
+
 
 
     $scope.retreiveWorkouts = function(){
@@ -105,7 +108,6 @@ app.controller('TrainerCtrl', [
     }
 
     $scope.createWorkout = function(){
-      // need to add in trainer and client id
       clients.addWorkout(trainerId, $scope.clientSelect.id, {e1: $scope.e1, d1: $scope.d1, e2: $scope.e2, d2: $scope.d2, e3: $scope.e3, d3: $scope.d3, e4: $scope.e4, d4: $scope.d4, e5: $scope.e5, d5: $scope.d5, e6: $scope.e6, d6: $scope.d6, e7: $scope.e7, d7: $scope.d7, e8: $scope.e8, d8: $scope.d8, e9: $scope.e9, d9: $scope.d9, e10: $scope.e10, d10: $scope.d10 });
       var index;
       $scope.clients.forEach(function(item, i){
