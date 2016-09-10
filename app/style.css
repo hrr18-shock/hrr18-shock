@@ -2,7 +2,6 @@
 
 .view {
   background-color:#4F97CE;
-  height:100vh;
 }
 
 /*Client*/
@@ -65,6 +64,34 @@
   border-radius: 10px 0px 0px 10px;
   padding:10px;
   width:45%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  height:65vh;
+  background-color:white;
+}
+
+#topContainer {
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid lightgrey;
+  border-radius: 10px 0px 0px 10px;
+  padding:10px;
+  width:90%;
+  margin-top: 30px;
+  margin-bottom: 50px;
+  overflow-y: scroll;
+  height:65vh;
+  background-color:white;
+}
+
+#bottomContainer {
+  margin-left:auto;
+  margin-right:auto;
+  border: 1px solid lightgrey;
+  border-radius: 10px 0px 0px 10px;
+  padding:10px;
+  width:90%;
   margin-top: 30px;
   margin-bottom: 50px;
   overflow-y: scroll;
