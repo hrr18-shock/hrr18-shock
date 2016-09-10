@@ -69,7 +69,7 @@ app.controller('TrainerCtrl', [
     //   if(!$scope.name || $scope.name === ''){
     //     return;
     //   }
-    //   $scope.clients.push({name: $scope.name, workouts: []});
+      // $scope.clients.push({name: 'Foo Bar', workouts: []});
     //   $scope.name = '';
     // };
 
@@ -108,30 +108,60 @@ app.controller('TrainerCtrl', [
     };
 
     // excercise names hardcoded for testing
+    // make sure id = id in the database!!!
     $scope.exNames = {
     model: null,
     availableOptions: [
-      {id: '1', name: 'Squat'},
-      {id: '2', name: 'Deadlift'},
-      {id: '3', name: 'Bench press'},
-      {id: '4', name: 'Push-up'},
-      {id: '5', name: 'Shoulder press'},
-      {id: '6', name: 'Crunch'}
+      {id: '1', name: 'Squat', video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM'},
+      {id: '2', name: 'Deadlift', video: 'https://www.youtube.com/watch?v=-4qRntuXBSc'},
+      {id: '3', name: 'Bench press', video: 'https://www.youtube.com/watch?v=U4BS9EXvfyg'},
+      {id: '4', name: 'Push-up', video: 'https://www.youtube.com/watch?v=IODxDxX7oi4'},
+      {id: '5', name: 'Overhead press', video: 'https://www.youtube.com/watch?v=F3QY5vMz_6I'},
+      {id: '6', name: 'Dips', video: 'https://www.youtube.com/watch?v=lZuogVd98oA'}
     ]
    };
 
-    // video hardcoded
-    $scope.linkS = [{video: 'https://www.youtube.com/watch?v=IODxDxX7oi4',
-  description: 'do this a lot'},
-  {video: 'https://www.youtube.com/watch?v=lQRsYgRafA8&feature=youtu.be',
-  description: 'this helps too'},
-  {video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM',
-  description: 'ex2'},
-  'https://www.youtube.com/watch?v=-4qRntuXBSc',
-  'https://www.youtube.com/watch?v=U4BS9EXvfyg&index=5&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
-  'https://www.youtube.com/watch?v=5a6bRnvjlgg&index=6&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
-  'https://www.youtube.com/watch?v=-phbNTs-SwU&index=7&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8'];
-    $scope.linkS.name = ['Ex1', 'Ex2', 'Ex3', 'Ex4', 'Ex5', 'Ex6', 'Ex7'];
+
+   // example of a workout data
+   var exampleWorkoutData = {
+      d1: "2x3",
+      d2: "5x5",
+      d3: "20",
+      d4: undefined,
+      d5: undefined,
+      d6: undefined,
+      d7: undefined,
+      d8: undefined,
+      d9: undefined,
+      d10: undefined,
+      e1: "1",
+      e2: "2",
+      e3: "4",
+      e4: undefined,
+      e5: undefined,
+      e6: undefined,
+      e7: undefined,
+      e8: undefined,
+      e9: undefined,
+      e10: undefined
+   };
+
+  $scope.linkS = [];
+  var a = {name: 'Squat', video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM', description: '3x4'};
+  var b = {description: '5x5', name: 'Deadlift', video: 'https://www.youtube.com/watch?v=-4qRntuXBSc'};
+  $scope.linkS.push(a);
+  $scope.linkS.push(b);
+  //   // video hardcoded
+  //   $scope.linkS = [{video: 'https://www.youtube.com/watch?v=IODxDxX7oi4',
+  // description: 'do this a lot'},
+  // {video: 'https://www.youtube.com/watch?v=lQRsYgRafA8&feature=youtu.be',
+  // description: 'this helps too'},
+  // {video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM',
+  // description: 'ex2'},
+  // 'https://www.youtube.com/watch?v=-4qRntuXBSc',
+  // 'https://www.youtube.com/watch?v=U4BS9EXvfyg&index=5&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
+  // 'https://www.youtube.com/watch?v=5a6bRnvjlgg&index=6&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
+  // 'https://www.youtube.com/watch?v=-phbNTs-SwU&index=7&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8'];
 
   }
 ]);
