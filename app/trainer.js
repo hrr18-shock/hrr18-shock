@@ -2,18 +2,30 @@ var app = angular.module('trainerConnect', ['ngYoutubeEmbed']);
 
 app.factory('clients', ['$http', function($http){
   var o = {
-    clients: []
+    clients: [],
+    clientWorkouts: []
   };
 
-  // o.getClients = function(id){
-  //   return $http.get('/clients/' + id).success(function(data){
-  //     angular.copy(data, o.clients);
-  //   })
-  // }
+  // going to need to add stuff to create workout in TrainerCtrl and add resolve to states
 
-  // o.addWorkout = function(id, workout) {
-  //   return $http.post('/clients/' + id + '/workout', workout);
-  // };
+  o.getClients = function(trainerId){
+    return $http.get('/clients/' + trainerId).success(function(data){
+      angular.copy(data, o.clients);
+      console.log(data)
+    })
+  }
+
+  o.getWorkouts = function(trainerId, clientId){
+    return $http.get('/clients/' + trainerId + '/' + clientId).success(function(data){
+      angular.copy(data, o.clientWorkouts);
+    })
+  }
+
+  o.addWorkout = function(trainerId, clientId, workout) {
+    return $http.post('/clients/' + trainerId + '/workout', workout).success(function(data){
+      o.clientWorkouts.push(data);
+    });
+  };
 
   return o;
 }]);
@@ -70,12 +82,19 @@ app.controller('TrainerCtrl', [
   '$location',
   '$http',
   'userRetriever',
-  function($scope, clients, $location, $http, userRetriever){
+  '$state',
+  function($scope, clients, $location, $http, userRetriever, $state){
 
     userRetriever($location, $http);
 
+    // need to figure out how to get current trainer id
+    var trainerId = 4;
+
+    clients.getClients(trainerId);
+
     $scope.clients = clients.clients;
 
+<<<<<<< c83f9d32771d317c3bcd86f3fb1a9d55e6db15c0
     // $scope.addClient = function(){
     //   if(!$scope.name || $scope.name === ''){
     //     return;
@@ -83,10 +102,20 @@ app.controller('TrainerCtrl', [
       // $scope.clients.push({name: 'Foo Bar', workouts: []});
     //   $scope.name = '';
     // };
+=======
+    $scope.workouts = clients.clientWorkouts;
+>>>>>>> Get clients and workouts working with dummy data
+
+    $scope.retreiveWorkouts = function(){
+      console.log("working!")
+      clients.getWorkouts(trainerId, $scope.clientSelect.id)
+      $state.go('trainer.workouts')
+      // clients.getWorkouts(trainerId, $scope.client.name)
+    }
 
     $scope.createWorkout = function(){
-
-      $scope.clientSelect.workouts.push({e1: $scope.e1, d1: $scope.d1, e2: $scope.e2, d2: $scope.d2, e3: $scope.e3, d3: $scope.d3, e4: $scope.e4, d4: $scope.d4, e5: $scope.e5, d5: $scope.d5, e6: $scope.e6, d6: $scope.d6, e7: $scope.e7, d7: $scope.d7, e8: $scope.e8, d8: $scope.d8, e9: $scope.e9, d9: $scope.d9, e10: $scope.e10, d10: $scope.d10 });
+      // need to add in trainer and client id
+      clients.addWorkout(trainerId, $scope.clientSelect.id, {e1: $scope.e1, d1: $scope.d1, e2: $scope.e2, d2: $scope.d2, e3: $scope.e3, d3: $scope.d3, e4: $scope.e4, d4: $scope.d4, e5: $scope.e5, d5: $scope.d5, e6: $scope.e6, d6: $scope.d6, e7: $scope.e7, d7: $scope.d7, e8: $scope.e8, d8: $scope.d8, e9: $scope.e9, d9: $scope.d9, e10: $scope.e10, d10: $scope.d10 });
       var index;
       $scope.clients.forEach(function(item, i){
         if(item.name === $scope.clientSelect.name){
