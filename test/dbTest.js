@@ -41,6 +41,31 @@ describe('database queries', function() {
       email:'foobar@gmail.com'
     }
   }
+  var dummyWorkouts = {
+
+    workoutListOne: {
+      comments:'beginner exercise routine',
+      trainer_id: 1,
+      user_id: 4
+    },
+
+    e1: {
+      workout_list_id: 1,
+      exercise_name: 'push ups',
+      comments: '5 x 10'
+    },
+    e2: {
+      workout_list_id: 1,
+      exercise_name: 'pull ups',
+      comments: '5 x 10'
+    },
+    e3: {
+      workout_list_id: 1,
+      exercise_name: 'sit ups',
+      comments: '5 x 10'
+    }
+
+  }
 
 
 
@@ -119,14 +144,116 @@ describe('database queries', function() {
         expect(result[0][0].username === dummyUsers.two.username)
       })
 
+        done();
+      })
+    })
+
+  });
+
+  it('should add a client trainer row', function(done){
+    models.Trainer_Client.create({trainer_id:1 ,user_id:4})
+    done();
+  })
+
+  it('should return all trainers', function(done){
+
+    db.sequelize.query('select users.username from users INNER JOIN trainers ON users.id = trainers.user_id').then(function(result){
+        expect(result[0][0].username === dummyUsers.one.username)
+        expect(result[0][1].username === dummyUsers.two.username)
+        done();
+    })
+  })
+
+  it('should return all of a trainers clients', function(done){
+    // this grabs all the trainer and clients
+    models.Trainers.findAll({include:[models.Users] }).then(function(trainers){
+        // console.log(JSON.stringify(trainers))
+        expect(trainers[0].dataValues.username === dummyUsers.one.username)
+        expect(trainers[0].dataValues.users[0].dataValues === dummyUsers.four.username)
+        done();
+      })
+  })
+
+  it('should add a workout list', function(done){
+    models.Workout_list.create(
+      {
+        comments: dummyWorkouts.workoutListOne.comments,
+        user_id: dummyWorkouts.workoutListOne.user_id,
+        trainer_id: dummyWorkouts.workoutListOne.trainer_id
+      }
+    )
+    .then(function(res){
+      // console.log(res);
+      done();
+    })
+    //TODO add expect later
+  })
+
+  it('should add workouts to workout list', function(done){
+    models.Workouts.create({
+      workout_list_id: dummyWorkouts.e1.workout_list_id,
+      exercise_name: dummyWorkouts.e1.exercise_name,
+      comments: dummyWorkouts.e1.comments
+    })
+    .then(function(res){
+    models.Workouts.create({
+      workout_list_id: dummyWorkouts.e2.workout_list_id,
+      exercise_name: dummyWorkouts.e2.exercise_name,
+      comments: dummyWorkouts.e2.comments
+    })
+    .then(function(res){
+    models.Workouts.create({
+      workout_list_id: dummyWorkouts.e3.workout_list_id,
+      exercise_name: dummyWorkouts.e3.exercise_name,
+      comments: dummyWorkouts.e3.comments
+    })
+    .then(function(res){
       done();
     })
     })
+    })
+    //TODO: add expects
+  })
+
+  it('should be able to grab list of workouts related to trainer or user', function(done){
+    models.Workout_list.findAll({where:{
+        $or:[
+          {
+            user_id: 4
+          },
+          {
+            trainer_id: 1
+          }
+        ] }
+      })
+    .then(function(res){
+      // console.log(res)
+      done();
+    })
+        //TODO: add expects
+
+  })
+
+  it('should be able to grab all workouts from a list', function(done){
+    models.Workouts.findAll({where:{
+        $or:[
+          {
+            workout_list_id: 1
+          }
+        ] }
+      })
+    .then(function(res){
+      console.log(res)
+      done();
+    })
+        //TODO: add expects
+  })
 
 
 
-  });
 });
+
+
 
 // truncates all tables before the test
 db.sequelize.query('TRUNCATE users Restart Identity Cascade')
@@ -135,7 +262,13 @@ db.sequelize.query('TRUNCATE users Restart Identity Cascade')
 .then(function(){
     db.sequelize.query('TRUNCATE trainer_clients Restart Identity Cascade')
 .then(function(){
-      console.log('done')
+      db.sequelize.query('TRUNCATE workout_lists Restart Identity Cascade')
+.then(function(){
+        db.sequelize.query('TRUNCATE workouts Restart Identity Cascade')
+.then(function(){
+          console.log('truncated')
+        })
+      })
     })
   })
 })
