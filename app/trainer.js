@@ -94,17 +94,8 @@ app.controller('TrainerCtrl', [
 
     $scope.clients = clients.clients;
 
-<<<<<<< c83f9d32771d317c3bcd86f3fb1a9d55e6db15c0
-    // $scope.addClient = function(){
-    //   if(!$scope.name || $scope.name === ''){
-    //     return;
-    //   }
-      // $scope.clients.push({name: 'Foo Bar', workouts: []});
-    //   $scope.name = '';
-    // };
-=======
     $scope.workouts = clients.clientWorkouts;
->>>>>>> Get clients and workouts working with dummy data
+
 
     $scope.retreiveWorkouts = function(){
       console.log("working!")
