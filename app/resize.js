@@ -9,3 +9,4 @@ $(window).resize(function() {
     $('#bottomContainer').attr('id','rightContainer');
   }
 });
+
