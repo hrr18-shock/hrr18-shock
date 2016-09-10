@@ -89,7 +89,8 @@ app.controller('TrainerCtrl', [
     userRetriever($location, $http);
 
     // don't know if this is correct way to get trainer id
-    var trainerId = FB.api('/me', function(res){return res.id });
+    // FB.api('/me', function(res){return res.id });
+    var trainerId = 4;
 
     clients.getClients(trainerId);
 
