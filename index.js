@@ -15,12 +15,11 @@ app.use(bodyParser.json());
 //     res.sendFile(path.join(__dirname + '/index.html'));
 // });
 
-app.post('/fetchUser', function(req, res){
+app.get('/fetchUser/:username', function(req, res){
   // DB helper function to retrieve user by name or id
-  console.log(req.body)
   controller.usersView.userLogin(req, res)
 })
-app.post('/fetchTrainer', function(req, res){
+app.get('/fetchTrainer/:username', function(req, res){
   // DB helper function to retrieve user by name or id
   controller.usersView.trainerLogin(req, res)
 })
@@ -29,6 +28,10 @@ app.post('/create', function(req, res){
 })
 app.get('/displayTrainers', function(req, res){
   controller.usersView.displayTrainers(req, res)
+})
+
+app.post('/selectTrainer', function(req, res){
+  controller.usersView.selectTrainer(req, res)
 })
 // Workout Listeners
 
