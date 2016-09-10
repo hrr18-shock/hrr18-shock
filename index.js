@@ -34,6 +34,14 @@ app.get('/displayTrainers', function(req, res){
 
 app.post('workout')
 
+app.get('/clients/:id', function(req, res){
+  res.json([{name: 'Jim', id:2}]);
+})
+
+app.get('/clients/:id/:id', function(req, res){
+  res.json([{e1: 'Squats', d1: '10 reps', e2: 'deadlift', d2: '5 reps'}]);
+})
+
 
 
 // Sync models with database then open port

@@ -11,11 +11,21 @@
     <button type="submit" class="btn btn-primary">Add Client</button>
   </form> -->
 </div>
+<div>
+  <form ng-submit="retreiveWorkouts()">
+    <div id="selectClientBox">
+      <h3>Select Client to View Workouts</h3>
+      <select class="form-control" ng-model="clientSelect" ng-options="client.name for client in clients">
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" >View Client Workouts</button>
+  </form>
+</div>
 <div class="form-group">
   <h3>Search Clients</h3>
   <input ng-model="searchText" class="form-control" placeholder="Search Clients">
 </div>
-<h3>Select Client to View Workouts</h3>
 <div ng-repeat="client in clients | filter:searchText">
-  <a href='./#/trainer/trainer-workouts/{{client.name}}'><h4 ng-model="current" class="clientBoxes">{{client.name}}</h4></a>
+  <h4 class="clientBoxes">{{client.name}}</h4>
 </div>
+
