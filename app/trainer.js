@@ -104,6 +104,7 @@ app.controller('TrainerCtrl', [
     $scope.clients = clients.clients;
 
 
+
     $scope.workouts = clients.clientWorkouts;
 
 
@@ -187,7 +188,10 @@ app.controller('TrainerCtrl', [
     //   $scope.name = '';
     // };
 
+=======
+>>>>>>> Get clients and workouts working with dummy data
     $scope.workouts = clients.clientWorkouts;
+
 
 
     $scope.retreiveWorkouts = function(){
