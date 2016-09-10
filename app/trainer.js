@@ -22,12 +22,17 @@ app.factory('clients', ['$http', function($http){
   }
 
   o.addWorkout = function(trainerId, clientId, workout) {
+<<<<<<< eb480b305164558b340ccc17cf090ce1d5250b6a
 <<<<<<< e3ac857b0339dfbcc6339285c2e748854c34a71d
     return $http.post('/trainer/createWorkouts', workout).success(function(data){
       console.log('this is the data: ', data)
 =======
     return $http.post('/clients/' + trainerId + '/workout', workout).success(function(data){
 >>>>>>> Get clients and workouts working with dummy data
+=======
+    return $http.post('/clients/' + trainerId + '/' + clientId + '/workout', workout).success(function(data){
+      console.log('this is the data: ', data)
+>>>>>>> Finished up get and post routes to server from trainer page with dummy data
       o.clientWorkouts.push(data);
     });
   };
@@ -93,11 +98,15 @@ app.controller('TrainerCtrl', [
     userRetriever($location, $http);
 
     // don't know if this is correct way to get trainer id
+
     // FB.api('/me', function(res){return res.id });
     var trainerId = 1;
 
     // need to figure out how to get current trainer id
     var trainerId = 4;
+
+    var trainerId = FB.api('/me', function(res){return res.id });
+
 
     clients.getClients(trainerId);
 
@@ -202,7 +211,6 @@ app.controller('TrainerCtrl', [
     }
 
     $scope.createWorkout = function(){
-      // need to add in trainer and client id
       clients.addWorkout(trainerId, $scope.clientSelect.id, {e1: $scope.e1, d1: $scope.d1, e2: $scope.e2, d2: $scope.d2, e3: $scope.e3, d3: $scope.d3, e4: $scope.e4, d4: $scope.d4, e5: $scope.e5, d5: $scope.d5, e6: $scope.e6, d6: $scope.d6, e7: $scope.e7, d7: $scope.d7, e8: $scope.e8, d8: $scope.d8, e9: $scope.e9, d9: $scope.d9, e10: $scope.e10, d10: $scope.d10 });
 >>>>>>> Get clients and workouts working with dummy data
       var index;
