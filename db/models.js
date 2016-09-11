@@ -46,6 +46,7 @@ exports.Workouts = db.define('workouts', {
   workout_list_id  : { type: Sequelize.INTEGER, references : {model: exports.Workout_list, key:exports.Workout_list.id} },
   exercise_name    : Sequelize.STRING,
   comments         : Sequelize.STRING,
+  videoLink        : Sequelize.STRING,
   //Todo link to exercise table
   // id_exercises    :{ type: Sequelize.INTEGER, references : {model: exports.Exercises, key:exports.Exercises.id} },
   createdAt        : Sequelize.DATE,
