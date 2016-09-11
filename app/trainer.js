@@ -179,11 +179,11 @@ app.controller('TrainerCtrl', [
       e10: undefined
    };
 
-  $scope.linkS = [];
-  var a = {name: 'Squat', video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM', description: '3x4'};
-  var b = {description: '5x5', name: 'Deadlift', video: 'https://www.youtube.com/watch?v=-4qRntuXBSc'};
-  $scope.linkS.push(a);
-  $scope.linkS.push(b);
+  // $scope.linkS = [];
+  // var a = {name: 'Squat', video: 'https://www.youtube.com/watch?v=Dy28eq2PjcM', description: '3x4'};
+  // var b = {description: '5x5', name: 'Deadlift', video: 'https://www.youtube.com/watch?v=-4qRntuXBSc'};
+  // $scope.linkS.push(a);
+  // $scope.linkS.push(b);
   //   // video hardcoded
   //   $scope.linkS = [{video: 'https://www.youtube.com/watch?v=IODxDxX7oi4',
   // description: 'do this a lot'},
