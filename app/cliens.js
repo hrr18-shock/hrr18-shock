@@ -27,16 +27,38 @@ app.controller('CliensCtrl', [
 
 
   // $scope.linkS.push(b);
-  var workOutID = 1;
-  var oo = {
-   workoutPlan: []
-  }
-  $http.get('/fetchWorkout/workoutlist/' + workOutID).success(function(data){
-      angular.copy(data, oo.workoutPlan);
-      console.log(data, oo.workoutPlan);
-      $scope.linkS = oo.workoutPlan;
+  $scope.clientIDHard = 4;
+  $scope.clientWorkOutList = [];
+
+  $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
+    angular.copy(data, $scope.clientWorkOutList);
+    console.log($scope.clientWorkOutList);
+  });
+
+
+  $scope.workOutID = 3;
+
+  // watch is not fireing off when $scope.workOutID is changed
+  $scope.$watch('workOutID', function(newValue, oldValue){
+
+    if (!angular.equals(oldValue, newValue)) {
+
+      console.log(newValue, "old", oldValue);
+    $http.get('/fetchWorkout/workoutlist/' + $scope.workOutID).success(function(data){
+      angular.copy(data, $scope.oo.workoutPlan);
+      console.log(data, $scope.oo.workoutPlan);
+      $scope.linkS = $scope.oo.workoutPlan;
       console.log($scope.linkS, 'thisis the sssoso$$$');
     })
+
+
+    }
+  }, true);
+
+  $scope.oo = {
+   workoutPlan: []
+  }
+
 
   }
 ]);

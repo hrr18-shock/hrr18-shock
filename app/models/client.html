@@ -4,6 +4,11 @@
       <div  id="clientContainer">
 
           <h2>Workouts</h2>
+          <h3>Choose workout to display</h3>
+          {{workOutID}}
+          <select class="form-control" ng-model="workOutID">
+                    <option ng-repeat="option in clientWorkOutList" value="{{option.id}}">{{option.comments}}</option>
+                  </select>
           <div class="centerText" ng-repeat="vid in linkS">
           <p>{{ vid.exercise_name }}</p>
            <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
