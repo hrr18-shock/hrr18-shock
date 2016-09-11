@@ -1,4 +1,5 @@
 var models = require('../db/models.js');
+var async = require('async');
 // client to database methods
 
 //TODO:
@@ -28,17 +29,35 @@ module.exports = {
     searchClients: function(req, res){
 
     },*/
-    createWorkouts: function(req, res){
+    addToWorkoutList: function(req, res){
       models.Workout_list.create(
         {
-          comments: req.body.comments,
-          user_id: req.body.user_id,
-          trainer_id: req.body.user_id.trainer_id
+          comments: req.body.workoutList.comments,
+          user_id: req.body.workoutList.user_id,
+          trainer_id: req.body.workoutList.trainer_id
         }
       )
       .then(function(result){
+        var workoutListID = result.id;
+        var workouts = req.body.workouts;
+        async.each(workouts, function(workoutItem, callback){
+          models.Workouts.create({
+            workout_list_id: workoutListID,
+            exercise_name: workoutItem.exercise_name,
+            comments: workoutItem.comments,
+            videoLink: workoutItem.videoLink
+          })
+          callback()
+        })
+        .then(function(){
+          // res.send('added workouts')
+        })
+
 
       })
+    },
+    createWorkout: function(req,res){
+
     },
     viewWorkouts: function(req, res){
       models.Workout_list.findAll({where:{

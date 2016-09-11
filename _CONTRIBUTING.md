@@ -194,8 +194,24 @@ if you need to drop all tables use the postgres shell by typing in
 //~ DROP SCHEMA public cascade;
 //~ CREATE SCHEMA public
 
-to run the db from heroku type in the command
+## Database
+to run the db from heroku type in the command (if heroku has pg installed already)
 ~ heroku pg:psql --app shock18
+
+if there is a change of tables in the database drop and create schemas
+
+to insert dummy data into your local database
+- make sure your tables are updated by running drop and create schema
+//~ DROP SCHEMA public cascade;
+//~ CREATE SCHEMA public
+- sync database
+//~ node index.js
+- insert dummy data
+//~ npm test
+
+
+
+
 
 
 
