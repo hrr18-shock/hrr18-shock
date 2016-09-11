@@ -5,10 +5,10 @@
 
           <h2>Workouts</h2>
           <div class="centerText" ng-repeat="vid in linkS">
-          <p>{{ vid.name }}</p>
+          <p>{{ vid.exercise_name }}</p>
            <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
-            <ng-youtube-embed url="vid.video" width="100%"></ng-youtube-embed>
-              <p>{{ vid.description }}</p>
+            <ng-youtube-embed url="vid.videoLink" width="100%"></ng-youtube-embed>
+              <p>{{ vid.comments }}</p>
 
           </div>
           <hr>
