@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/hrr18-shock/hrr18-shock#readme",
   "dependencies": {
+    "async": "^2.0.1",
     "chai": "^3.5.0",
     "express": "^4.14.0",
     "grunt": "^1.0.1",

@@ -1,0 +1,63 @@
+{ workoutList:
+  {
+    "comments": "beginner exercise routine",
+    "user_id": 4,
+    "trainer_id": 1,
+  },
+  workouts:[
+    {
+      "id": 1,
+      "workout_list_id": 1,
+      "exercise_name": "push ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=IODxDxX7oi4",
+    },
+    {
+      "id": 2,
+      "workout_list_id": 1,
+      "exercise_name": "pull ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=Dy28eq2PjcM",
+    },
+    {
+      "id": 3,
+      "workout_list_id": 1,
+      "exercise_name": "sit ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=-4qRntuXBSc",
+    }
+  ]
+}
+
+
+POST BODY
+{
+  "workoutList": {
+    "comments": "week 2 workouts",
+    "user_id": "4",
+    "trainer_id": "1"
+  },
+    "workouts":[
+    {
+      "id": 1,
+      "workout_list_id": 1,
+      "exercise_name": "push ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=IODxDxX7oi4"
+    },
+    {
+      "id": 2,
+      "workout_list_id": 1,
+      "exercise_name": "pull ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=Dy28eq2PjcM"
+    },
+    {
+      "id": 3,
+      "workout_list_id": 1,
+      "exercise_name": "sit ups",
+      "comments": "5 x 10",
+      "videoLink": "https://www.youtube.com/watch?v=-4qRntuXBSc"
+    }
+  ]
+}

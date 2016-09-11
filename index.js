@@ -57,6 +57,11 @@ app.get('/clients/:id/:id', function(req, res){
 })
 
 
+// create workout from trainer view
+app.post('/trainer/createWorkouts', function(req, res){
+  console.log(req)
+  controller.trainersView.addToWorkoutList(req, res)
+})
 
 // Sync models with database then open port
 db.sequelize.sync().then(function() {
