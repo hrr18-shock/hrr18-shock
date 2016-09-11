@@ -49,16 +49,10 @@ module.exports = {
           })
           callback()
         })
-        // .then(function(){
-        //   // res.send('added workouts')
-        // })
-
 
       })
     },
-    createWorkout: function(req,res){
-
-    },
+    //TO DO view only the selected client
     viewWorkouts: function(req, res){
       models.Workout_list.findAll({where:{
           $or:[
@@ -70,6 +64,12 @@ module.exports = {
       .then(function(response){
 
       })
+    },
+    //TODO grab all of the trainers clients
+    grabClients: function(req, res){
+      models.Trainers.findAll({where:{id:req.params.id}, include:[models.Users] }).then(function(trainers){
+          res.send(trainers)
+        })
     }
 
   },
