@@ -44,7 +44,7 @@ module.exports = {
       models.Workout_list.findAll({where:{
           $or:[
             {
-              trainer_id: req.body.trainer_id
+              trainer_id: req.params.trainer_id
             }
           ] }
         })
@@ -55,9 +55,30 @@ module.exports = {
 
   },
   clientsView:{
-    grabWorkouts: function(req, res){
-
+    fetchWorkoutLists: function(req, res){
+      models.Workout_list.findAll({where:{
+          $or:[
+            {
+              user_id: req.params.id
+            }
+          ] }
+        })
+      .then(function(response){
+        res.send(response)
+      })
     },
+    fetchWorkout: function(req, res){
+      models.Workouts.findAll({where:{
+          $or:[
+            {
+              workout_list_id: req.params.id
+            }
+          ] }
+        })
+      .then(function(result){
+        res.send(result)
+      })
+    }
 
   },
   usersView:{

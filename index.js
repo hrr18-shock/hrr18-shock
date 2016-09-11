@@ -34,7 +34,12 @@ app.post('/selectTrainer', function(req, res){
   controller.usersView.selectTrainer(req, res)
 })
 // Workout Listeners
-
+app.get('/fetchWorkoutLists/client/:id', function(req, res){
+  controller.clientsView.fetchWorkoutLists(req, res)
+})
+app.get('/fetchWorkout/workoutlist/:id', function(req, res){
+  controller.clientsView.fetchWorkout(req, res)
+})
 // create workout for client
 app.post('/clients/:id/:id/workout', function(req, res){
   //create new workout

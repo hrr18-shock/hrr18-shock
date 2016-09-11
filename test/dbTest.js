@@ -52,17 +52,21 @@ describe('database queries', function() {
     e1: {
       workout_list_id: 1,
       exercise_name: 'push ups',
-      comments: '5 x 10'
+      comments: '5 x 10',
+      videoLink: 'https://www.youtube.com/watch?v=IODxDxX7oi4'
     },
     e2: {
       workout_list_id: 1,
       exercise_name: 'pull ups',
-      comments: '5 x 10'
+      comments: '5 x 10',
+      videoLink: 'https://www.youtube.com/watch?v=Dy28eq2PjcM'
+
     },
     e3: {
       workout_list_id: 1,
       exercise_name: 'sit ups',
-      comments: '5 x 10'
+      comments: '5 x 10',
+      videoLink: 'https://www.youtube.com/watch?v=-4qRntuXBSc'
     }
 
   }
@@ -158,7 +162,7 @@ describe('database queries', function() {
   it('should return all trainers', function(done){
 
     db.sequelize.query('select users.username from users INNER JOIN trainers ON users.id = trainers.user_id').then(function(result){
-        console.log(result)
+        // console.log(result)
         expect(result[0][0].username === dummyUsers.one.username)
         expect(result[0][1].username === dummyUsers.two.username)
         done();
@@ -194,19 +198,24 @@ describe('database queries', function() {
     models.Workouts.create({
       workout_list_id: dummyWorkouts.e1.workout_list_id,
       exercise_name: dummyWorkouts.e1.exercise_name,
-      comments: dummyWorkouts.e1.comments
+      comments: dummyWorkouts.e1.comments,
+      videoLink: dummyWorkouts.e1.videoLink
     })
     .then(function(res){
     models.Workouts.create({
       workout_list_id: dummyWorkouts.e2.workout_list_id,
       exercise_name: dummyWorkouts.e2.exercise_name,
-      comments: dummyWorkouts.e2.comments
+      comments: dummyWorkouts.e2.comments,
+      videoLink: dummyWorkouts.e2.videoLink
+
     })
     .then(function(res){
     models.Workouts.create({
       workout_list_id: dummyWorkouts.e3.workout_list_id,
       exercise_name: dummyWorkouts.e3.exercise_name,
-      comments: dummyWorkouts.e3.comments
+      comments: dummyWorkouts.e3.comments,
+      videoLink: dummyWorkouts.e3.videoLink
+
     })
     .then(function(res){
       done();
@@ -244,7 +253,7 @@ describe('database queries', function() {
         ] }
       })
     .then(function(res){
-      // console.log(res)
+      console.log(res)
       done();
     })
         //TODO: add expects
