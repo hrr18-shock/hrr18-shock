@@ -108,7 +108,67 @@ app.controller('TrainerCtrl', [
     }
 
     $scope.createWorkout = function(){
-      clients.addWorkout(trainerId, $scope.clientSelect.id, {e1: $scope.e1, d1: $scope.d1, e2: $scope.e2, d2: $scope.d2, e3: $scope.e3, d3: $scope.d3, e4: $scope.e4, d4: $scope.d4, e5: $scope.e5, d5: $scope.d5, e6: $scope.e6, d6: $scope.d6, e7: $scope.e7, d7: $scope.d7, e8: $scope.e8, d8: $scope.d8, e9: $scope.e9, d9: $scope.d9, e10: $scope.e10, d10: $scope.d10 });
+      clients.addWorkout(trainerId, $scope.clientSelect.id,
+      {
+        workoutList: {
+          comments: $scope.title,
+          user_id: $scope.clientSelect.id,
+          trainer_id: trainerId,
+          workouts: [
+            {
+              exercise_name: $scope.e1,
+              comments: $scope.d1,
+              videoLink: $scope.v1
+            },
+            {
+              exercise_name: $scope.e2,
+              comments: $scope.d2,
+              videoLink: $scope.v2
+            },
+            {
+              exercise_name: $scope.e3,
+              comments: $scope.d3,
+              videoLink: $scope.v3,
+            },
+            {
+              exercise_name: $scope.e4,
+              comments: $scope.d4,
+              videoLink: $scope.v4
+            },
+            {
+              exercise_name: $scope.e5,
+              comments: $scope.d5,
+              videoLink: $scope.v5
+            },
+            {
+              exercise_name: $scope.e6,
+              comments: $scope.d6,
+              videoLink: $scope.v6
+            },
+            {
+              exercise_name: $scope.e7,
+              comments: $scope.d7,
+              videoLink: $scope.v7
+            },
+            {
+              exercise_name: $scope.e8,
+              comments: $scope.d8,
+              videoLink: $scope.v8
+            },
+            {
+              exercise_name: $scope.e9,
+              comments: $scope.d9,
+              videoLink: $scope.v9
+            },
+            {
+              exercise_name: $scope.e10,
+              comments: $scope.d10,
+              videoLink: $scope.v10
+            }
+          ]
+        }
+      });
+
       var index;
       $scope.clients.forEach(function(item, i){
         if(item.name === $scope.clientSelect.name){
@@ -138,6 +198,16 @@ app.controller('TrainerCtrl', [
       $scope.d9 = '';
       $scope.e10 = '';
       $scope.d10 = '';
+      $scope.v1 = '';
+      $scope.v2 = '';
+      $scope.v3 = '';
+      $scope.v4 = '';
+      $scope.v5 = '';
+      $scope.v6 = '';
+      $scope.v7 = '';
+      $scope.v8 = '';
+      $scope.v9 = '';
+      $scope.v10 = '';
     };
 
     // excercise names hardcoded for testing
