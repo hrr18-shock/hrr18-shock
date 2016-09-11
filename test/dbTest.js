@@ -237,7 +237,7 @@ describe('database queries', function() {
         ] }
       })
     .then(function(res){
-      // console.log(res)
+      console.log(res)
       done();
     })
         //TODO: add expects

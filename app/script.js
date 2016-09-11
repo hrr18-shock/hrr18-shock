@@ -1,6 +1,7 @@
 angular.module('PTapp', [
   'ui.router',
-  'trainerConnect'
+  'trainerConnect',
+  'cliensConnect'
   ])
 
   .controller('signupController', function($scope, $http, signupFactory){
@@ -68,7 +69,7 @@ angular.module('PTapp', [
     })
     .state('client', {
       url: "/client",
-      controller: 'TrainerCtrl',
+      controller: 'CliensCtrl',
       templateUrl: "./models/client.html"
     })
   });
