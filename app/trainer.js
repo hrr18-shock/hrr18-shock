@@ -9,14 +9,14 @@ app.factory('clients', ['$http', function($http){
   // going to need to add stuff to create workout in TrainerCtrl and add resolve to states
 
   o.getClients = function(trainerId){
-    return $http.get('/clients/' + trainerId).success(function(data){
+    return $http.get('/clients/' + trainerId, trainerId).success(function(data){
       angular.copy(data, o.clients);
       console.log(data)
     })
   }
 
   o.getWorkouts = function(trainerId, clientId){
-    return $http.get('/clients/' + trainerId + '/' + clientId).success(function(data){
+    return $http.get('/clients/' + trainerId + '/' + clientId, clientId).success(function(data){
       angular.copy(data, o.clientWorkouts);
     })
   }
@@ -177,6 +177,7 @@ app.controller('TrainerCtrl', [
       });
       $scope.clients[index] = $scope.clientSelect;
       console.log($scope.clients[index])
+      $scope.title = '';
       $scope.clientSelect = '';
       $scope.e1 = '';
       $scope.d1 = '';
