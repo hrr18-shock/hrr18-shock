@@ -49,9 +49,9 @@ module.exports = {
           })
           callback()
         })
-        .then(function(){
-          // res.send('added workouts')
-        })
+        // .then(function(){
+        //   // res.send('added workouts')
+        // })
 
 
       })
