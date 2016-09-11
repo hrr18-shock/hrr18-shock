@@ -48,7 +48,7 @@ app.post('/clients/:id/:id/workout', function(req, res){
 
 // get all clients for trainer
 app.get('/clients/:id', function(req, res){
-  res.json([{name: 'Jim', id:2}]);
+  res.json([{name: 'Jim', id:4}]);
 })
 
 // get all workouts for client

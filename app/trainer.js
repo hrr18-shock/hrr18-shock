@@ -22,7 +22,7 @@ app.factory('clients', ['$http', function($http){
   }
 
   o.addWorkout = function(trainerId, clientId, workout) {
-    return $http.post('/clients/' + trainerId + '/' + clientId + '/workout', workout).success(function(data){
+    return $http.post('/trainer/createWorkouts', workout).success(function(data){
       console.log('this is the data: ', data)
       o.clientWorkouts.push(data);
     });
@@ -90,7 +90,7 @@ app.controller('TrainerCtrl', [
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
-    var trainerId = 4;
+    var trainerId = 1;
 
     clients.getClients(trainerId);
 
@@ -113,60 +113,60 @@ app.controller('TrainerCtrl', [
         workoutList: {
           comments: $scope.title,
           user_id: $scope.clientSelect.id,
-          trainer_id: trainerId,
-          workouts: [
-            {
-              exercise_name: $scope.e1,
-              comments: $scope.d1,
-              videoLink: $scope.v1
-            },
-            {
-              exercise_name: $scope.e2,
-              comments: $scope.d2,
-              videoLink: $scope.v2
-            },
-            {
-              exercise_name: $scope.e3,
-              comments: $scope.d3,
-              videoLink: $scope.v3,
-            },
-            {
-              exercise_name: $scope.e4,
-              comments: $scope.d4,
-              videoLink: $scope.v4
-            },
-            {
-              exercise_name: $scope.e5,
-              comments: $scope.d5,
-              videoLink: $scope.v5
-            },
-            {
-              exercise_name: $scope.e6,
-              comments: $scope.d6,
-              videoLink: $scope.v6
-            },
-            {
-              exercise_name: $scope.e7,
-              comments: $scope.d7,
-              videoLink: $scope.v7
-            },
-            {
-              exercise_name: $scope.e8,
-              comments: $scope.d8,
-              videoLink: $scope.v8
-            },
-            {
-              exercise_name: $scope.e9,
-              comments: $scope.d9,
-              videoLink: $scope.v9
-            },
-            {
-              exercise_name: $scope.e10,
-              comments: $scope.d10,
-              videoLink: $scope.v10
-            }
-          ]
-        }
+          trainer_id: trainerId
+        },
+        workouts: [
+          {
+            exercise_name: $scope.e1,
+            comments: $scope.d1,
+            videoLink: $scope.v1
+          },
+          {
+            exercise_name: $scope.e2,
+            comments: $scope.d2,
+            videoLink: $scope.v2
+          },
+          {
+            exercise_name: $scope.e3,
+            comments: $scope.d3,
+            videoLink: $scope.v3,
+          },
+          {
+            exercise_name: $scope.e4,
+            comments: $scope.d4,
+            videoLink: $scope.v4
+          },
+          {
+            exercise_name: $scope.e5,
+            comments: $scope.d5,
+            videoLink: $scope.v5
+          },
+          {
+            exercise_name: $scope.e6,
+            comments: $scope.d6,
+            videoLink: $scope.v6
+          },
+          {
+            exercise_name: $scope.e7,
+            comments: $scope.d7,
+            videoLink: $scope.v7
+          },
+          {
+            exercise_name: $scope.e8,
+            comments: $scope.d8,
+            videoLink: $scope.v8
+          },
+          {
+            exercise_name: $scope.e9,
+            comments: $scope.d9,
+            videoLink: $scope.v9
+          },
+          {
+            exercise_name: $scope.e10,
+            comments: $scope.d10,
+            videoLink: $scope.v10
+          }
+        ]
       });
 
       var index;
