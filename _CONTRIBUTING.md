@@ -202,11 +202,14 @@ if there is a change of tables in the database drop and create schemas
 
 to insert dummy data into your local database
 - make sure your tables are updated by running drop and create schema
+- in one terminal run
+//~ postgres -D /usr/local/var/postgres
+in another one run
+//~ psql shock
 //~ DROP SCHEMA public cascade;
 //~ CREATE SCHEMA public
-- sync database
+in another terminal run
 //~ node index.js
-- insert dummy data
 //~ npm test
 
 
