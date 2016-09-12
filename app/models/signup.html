@@ -6,13 +6,10 @@
     <input type="radio" ng-model="role" value="trainer" checked> Trainer<br>
     <input type="radio" ng-model="role" value="client"> Client
   </form>
-
+  <h4>If you are a client, select your trainer!</h4>
   <select ng-model="selectedTrainer" ng-options="trainer.name for trainer in trainers">
   </select>
-  <!-- ng options can hold more information  -->
-<!--   <select ng-model="trainer">
-    <option ng-repeat="trainer in trainers">{{trainer.name}}</option>
-  </select> -->
+
 
   <h3>If you don't see the Facebook button, refresh the page</h3>
 
