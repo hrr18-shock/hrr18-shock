@@ -10,6 +10,7 @@ app.controller('CliensCtrl', [
   function($scope, clients, $location, $http, userRetriever, $state){
 
     $scope.linkS = [];
+    $scope.clientWorkOutList = [];
   // var a = {exercise_name: 'Squat', videoLink: 'https://www.youtube.com/watch?v=Dy28eq2PjcM', comments: '3x4'};
   // var b = {description: '5x5', name: 'Deadlift', video: 'https://www.youtube.com/watch?v=-4qRntuXBSc'};
   // {
@@ -41,20 +42,34 @@ app.controller('CliensCtrl', [
               console.log($scope.getMeDAID, 'thisis the client ID');
               $scope.clientIDHard = $scope.getMeDAID;
             });
-        })
+        }).then(function(){
+
+          if($scope.clientIDHard !== undefined){
+
+            $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
+            angular.copy(data, $scope.clientWorkOutList);
+            console.log($scope.clientWorkOutList);
+            });
+
+          }
+
+        });
 
 
 
   console.log($scope.clientIDHard, 'client id here');
-  $scope.clientWorkOutList = [];
-  if($scope.clientIDHard !== undefined){
+  // $scope.clientWorkOutList = [];
 
-    $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
-    angular.copy(data, $scope.clientWorkOutList);
-    console.log($scope.clientWorkOutList);
-  });
+  // if($scope.clientIDHard !== undefined){
 
-  };
+  //   $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
+  //   angular.copy(data, $scope.clientWorkOutList);
+  //   console.log($scope.clientWorkOutList);
+  // });
+
+  // };
+
+
   // $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
   //   angular.copy(data, $scope.clientWorkOutList);
   //   console.log($scope.clientWorkOutList);
