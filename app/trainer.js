@@ -40,7 +40,7 @@ app.factory('clients', ['$http', function($http){
 app.factory('userRetriever', function(){
   return function($location, $http, $state, $scope){
     FB.getLoginStatus(function(response) {
-      console.log('You are', response.status);
+      //console.log('You are', response.status);
       if(response.status !== 'connected'){
         $state.go('home');
       } else {
@@ -51,7 +51,7 @@ app.factory('userRetriever', function(){
             method: 'GET',
             url: '/fetchUser/' + response.name  // {name: Caleb Keith Aston, id: 4783264897238957298}
           }).then(function(user) {
-            console.log('user', user);
+            //console.log('user', user);
             if(user.data === 'invalid user') {
               $state.go('signup');
             } else {
