@@ -20,6 +20,16 @@
   background-color:white;
 }
 
+.exerciseBoxes {
+  padding-left: 30px;
+  border: 1px solid lightgrey;
+  border-radius: 10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  background-color: #4F97CE;
+  color: white;
+}
+
 .centerText {
   text-align:center;
 }
