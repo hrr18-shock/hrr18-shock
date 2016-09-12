@@ -38,26 +38,27 @@ app.factory('clients', ['$http', function($http){
 }]);
 
 app.factory('userRetriever', function(){
-  return function($location, $http){
+  return function($location, $http, $state){
     FB.getLoginStatus(function(response) {
       console.log('You are', response.status);
       if(response.status !== 'connected'){
-        $location.$$path = '/signin';
+        $state.go('signin');
       } else {
         // MAKE REQUEST TO SERVER TO GET USER'S DATA
-        FB.api('/me', function(response){
+        FB.api('/me', function(response){ //Facebook request
           $http({
             method: 'GET',
-            url: '/fetch',
-            data: response.id
-          }).then(function(data) {
+            url: '/fetchUser/' + response.name  // {name: Caleb Keith Aston, id: 4783264897238957298}
+          }).then(function(data) { //Database request
+            console.log(data);
+            if(data.data === 'invalid user') {
+              $state.go('signup');
+            }
             // IF USER DOES NOT EXIST
+            //$scope.clientId = data.id
             //if(!data.user){
               // REDIRECT TO SIGNUP PAGE
-              //$location.$$path = '/signup';
-            //} else {
-              // PARSE THE DATA AND USE IT TO FILL OUT THE PAGE
-              // $scope.workouts = data.user.workouts ?????????????
+              // $state.go('client');
             //}
             //}, function(data) {
               //console.error(data);
@@ -92,7 +93,7 @@ app.controller('TrainerCtrl', [
   '$state',
   function($scope, clients, $location, $http, userRetriever, $state){
 
-    userRetriever($location, $http);
+    userRetriever($location, $http, $state);
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
