@@ -9,7 +9,7 @@ exports.Users = db.define('users', {
   first_name    : Sequelize.STRING,
   last_name     : Sequelize.STRING,
   username      : Sequelize.STRING,
-  password      : Sequelize.STRING,
+  // password      : Sequelize.STRING,
   address       : Sequelize.STRING,
   phone_number  : Sequelize.STRING,
   email         : Sequelize.STRING,

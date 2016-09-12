@@ -41,12 +41,15 @@ module.exports = {
         var workoutListID = result.id;
         var workouts = req.body.workouts;
         async.each(workouts, function(workoutItem, callback){
-          models.Workouts.create({
-            workout_list_id: workoutListID,
-            exercise_name: workoutItem.exercise_name,
-            comments: workoutItem.comments,
-            videoLink: workoutItem.videoLink
-          })
+          if(workoutItem.exercise_name && workoutItem.comments && workoutItem.videoLink){
+
+            models.Workouts.create({
+              workout_list_id: workoutListID,
+              exercise_name: workoutItem.exercise_name,
+              comments: workoutItem.comments,
+              videoLink: workoutItem.videoLink
+            })
+          }
           callback()
         })
 
