@@ -38,7 +38,7 @@ app.factory('clients', ['$http', function($http){
 }]);
 
 app.factory('userRetriever', function(){
-  return function($location, $http, $state){
+  return function($location, $http, $state, $scope){
     FB.getLoginStatus(function(response) {
       console.log('You are', response.status);
       if(response.status !== 'connected'){
@@ -46,22 +46,28 @@ app.factory('userRetriever', function(){
       } else {
         // MAKE REQUEST TO SERVER TO GET USER'S DATA
         FB.api('/me', function(response){ //Facebook request
+          // QUERY OUR DATABASE TO SEE IF USER IS SIGNED UP
           $http({
             method: 'GET',
             url: '/fetchUser/' + response.name  // {name: Caleb Keith Aston, id: 4783264897238957298}
-          }).then(function(data) { //Database request
-            console.log(data);
-            if(data.data === 'invalid user') {
+          }).then(function(user) {
+            console.log('user', user);
+            if(user.data === 'invalid user') {
               $state.go('signup');
+            } else {
+              // set a global userId to get workouts for user
+              $scope.userId = user.data.id;
+              // QUERY OUR DATABASE TO SEE IF USER IS A TRAINER
+              $http({
+                method: 'GET',
+                url: '/isTrainer/' + user.data.id
+              }).then(function(isTrainer){
+                console.log('isTrainer', isTrainer);
+                if(isTrainer.data === ''){
+                  $state.go('client');
+                }
+              })
             }
-            // IF USER DOES NOT EXIST
-            //$scope.clientId = data.id
-            //if(!data.user){
-              // REDIRECT TO SIGNUP PAGE
-              // $state.go('client');
-            //}
-            //}, function(data) {
-              //console.error(data);
             });
         })
 
@@ -93,7 +99,7 @@ app.controller('TrainerCtrl', [
   '$state',
   function($scope, clients, $location, $http, userRetriever, $state){
 
-    userRetriever($location, $http, $state);
+    userRetriever($location, $http, $state, $scope);
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
