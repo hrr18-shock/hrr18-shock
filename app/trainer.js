@@ -38,9 +38,9 @@ app.factory('clients', ['$http', function($http){
 }]);
 
 app.factory('userRetriever', function(){
-  return function($location, $http, $state, $scope){
+  return function($location, $http, $state, $scope, clients){
     FB.getLoginStatus(function(response) {
-      console.log('You are', response.status);
+      //console.log('You are', response.status);
       if(response.status !== 'connected'){
         $state.go('home');
       } else {
@@ -51,7 +51,7 @@ app.factory('userRetriever', function(){
             method: 'GET',
             url: '/fetchUser/' + response.name  // {name: Caleb Keith Aston, id: 4783264897238957298}
           }).then(function(user) {
-            console.log('user', user);
+            //console.log('user', user);
             if(user.data === 'invalid user') {
               $state.go('signup');
             } else {
@@ -63,10 +63,11 @@ app.factory('userRetriever', function(){
                 method: 'GET',
                 url: '/isTrainer/' + user.data.id
               }).then(function(isTrainer){
-                clients.getClients(user.data.id);
                 console.log('isTrainer', isTrainer);
                 if(isTrainer.data === ''){
                   $state.go('client');
+                } else {
+                  clients.getClients(user.data.id);
                 }
               })
             }
@@ -101,7 +102,7 @@ app.controller('TrainerCtrl', [
   '$state',
   function($scope, clients, $location, $http, userRetriever, $state){
 
-    userRetriever($location, $http, $state, $scope);
+    userRetriever($location, $http, $state, $scope, clients);
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
