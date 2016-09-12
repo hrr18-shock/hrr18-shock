@@ -49,12 +49,12 @@ app.factory('userRetriever', function(){
           $http({
             method: 'GET',
             url: '/fetch',
-            data: response.id
+            data: response.id  // {name: Caleb Keith Aston, id: 4783264897238957298}
           }).then(function(data) {
             // IF USER DOES NOT EXIST
             //if(!data.user){
               // REDIRECT TO SIGNUP PAGE
-              //$location.$$path = '/signup';
+              // $location.$$path = '/signup';
             //} else {
               // PARSE THE DATA AND USE IT TO FILL OUT THE PAGE
               // $scope.workouts = data.user.workouts ?????????????
