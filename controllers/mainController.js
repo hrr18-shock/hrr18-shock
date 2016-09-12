@@ -1,34 +1,12 @@
 var models = require('../db/models.js');
 var async = require('async');
-// client to database methods
 
-//TODO:
-/*
-Grab All Trainers in sign up page;
-Add FB ID to the database
-*/
+
+
+// all the api endpoint methods
 module.exports = {
   trainersView:{
-    // done away with adding clients
-/*    addClient: function(req, res){
-      models.Users.findOrCreate({where:{
-        $or:[
-          {
-            username: req.username
-          },
-          {
-            email: req.email
-          }
-        ] }, defaults: {
-          first_name: req.firstName, last_name:req.lastName, address:req.address, phone_number:req.phoneNumber, email:req.email, username:req.username
-        }
-      }).then(function(user){
-        res.send(user)
-      });
-    },
-    searchClients: function(req, res){
 
-    },*/
     addToWorkoutList: function(req, res){
       models.Workout_list.create(
         {
@@ -55,20 +33,18 @@ module.exports = {
 
       })
     },
-    //TO DO view only the selected client
-    viewWorkouts: function(req, res){
-      models.Workout_list.findAll({where:{
-          $or:[
-            {
-              trainer_id: req.params.trainer_id
-            }
-          ] }
-        })
-      .then(function(response){
+    // viewWorkouts: function(req, res){
+    //   models.Workout_list.findAll({where:{
+    //       $or:[
+    //         {
+    //           trainer_id: req.params.trainer_id
+    //         }
+    //       ] }
+    //     })
+    //   .then(function(response){
 
-      })
-    },
-    //TODO grab all of the trainers clients
+    //   })
+    // },
     grabClients: function(req, res){
       models.Trainers.findAll({where:{id:req.params.id}, include:[models.Users] }).then(function(trainers){
           res.send(trainers)
@@ -104,7 +80,6 @@ module.exports = {
 
   },
   usersView:{
-    // TODO: add trainer during signup for now
     displayTrainers: function(req, res){
       db.sequelize.query('select * from users INNER JOIN trainers ON users.id = trainers.user_id').then(function(result){
             res.send(result[0])
@@ -209,7 +184,6 @@ module.exports = {
     // returns an object if user is a trainer
     isTrainer: function(req, res){
       models.Trainers.findOne({where:{user_id:req.params.id}}).then(function(result){
-
         res.send(result)
       })
     }
