@@ -63,6 +63,7 @@ app.factory('userRetriever', function(){
                 method: 'GET',
                 url: '/isTrainer/' + user.data.id
               }).then(function(isTrainer){
+                clients.getClients(user.data.id);
                 console.log('isTrainer', isTrainer);
                 if(isTrainer.data === ''){
                   $state.go('client');
@@ -106,7 +107,7 @@ app.controller('TrainerCtrl', [
     // FB.api('/me', function(res){return res.id });
     var trainerId = $scope.userId;
 
-    clients.getClients(trainerId);
+    // clients.getClients(trainerId);
 
     $scope.clients = clients.clients;
 
