@@ -42,7 +42,7 @@ app.factory('userRetriever', function(){
     FB.getLoginStatus(function(response) {
       console.log('You are', response.status);
       if(response.status !== 'connected'){
-        $state.go('signin');
+        $state.go('home');
       } else {
         // MAKE REQUEST TO SERVER TO GET USER'S DATA
         FB.api('/me', function(response){ //Facebook request
