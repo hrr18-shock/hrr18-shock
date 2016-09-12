@@ -3,21 +3,27 @@ var app = angular.module('trainerConnect', ['ngYoutubeEmbed']);
 app.factory('clients', ['$http', function($http){
   var o = {
     clients: [],
-    clientWorkouts: []
+    clientWorkouts: [],
+    workout: []
   };
 
   // going to need to add stuff to create workout in TrainerCtrl and add resolve to states
 
   o.getClients = function(trainerId){
-    return $http.get('/clients/' + trainerId).success(function(data){
-      angular.copy(data, o.clients);
-      console.log(data)
+    return $http.get('/trainer/' + trainerId + '/grabClients').success(function(data){
+      angular.copy(data[0].users, o.clients);
     })
   }
 
   o.getWorkouts = function(trainerId, clientId){
-    return $http.get('/clients/' + trainerId + '/' + clientId).success(function(data){
+    return $http.get('/fetchWorkoutLists/client/' + clientId).success(function(data){
       angular.copy(data, o.clientWorkouts);
+    })
+  }
+
+  o.getWorkout = function(workoutId){
+    return $http.get('/fetchWorkout/workoutlist/' + workoutId).success(function(data){
+      angular.copy(data, o.workout);
     })
   }
 
@@ -98,13 +104,15 @@ app.controller('TrainerCtrl', [
 
     $scope.workouts = clients.clientWorkouts;
 
+    $scope.workout = clients.workout;
 
+    $scope.retreiveWorkout = function(){
+      clients.getWorkout($scope.workoutSelect.id)
+    }
 
     $scope.retreiveWorkouts = function(){
-      console.log("working!")
       clients.getWorkouts(trainerId, $scope.clientSelect.id)
       $state.go('trainer.workouts')
-      // clients.getWorkouts(trainerId, $scope.client.name)
     }
 
     $scope.createWorkout = function(){
@@ -177,6 +185,7 @@ app.controller('TrainerCtrl', [
       });
       $scope.clients[index] = $scope.clientSelect;
       console.log($scope.clients[index])
+      $scope.title = '';
       $scope.clientSelect = '';
       $scope.e1 = '';
       $scope.d1 = '';
