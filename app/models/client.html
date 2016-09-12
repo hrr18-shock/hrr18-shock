@@ -1,12 +1,12 @@
 <div class="view" ng-app="trainerConnect" ng-controller="TrainerCtrl">
   <div class="container">
     <div class="row">
-       <!-- Roni add the CliensCtrl to get the $watch working here -->
+
       <div  id="clientContainer" ng-controller='CliensCtrl'>
 
           <h2>Workouts</h2>
           <h3>Choose workout to display</h3>
-          {{workOutID}}
+          <!-- {{workOutID}} -->
           <select class="form-control" ng-model="workOutID">
                     <option ng-repeat="option in clientWorkOutList" value="{{option.id}}">{{option.comments}}</option>
                   </select>
