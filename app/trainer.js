@@ -67,7 +67,8 @@ app.factory('userRetriever', function(){
                 if(isTrainer.data === ''){
                   $state.go('client');
                 } else {
-                  clients.getClients(user.data.id);
+                  $state.go('trainer.client');
+                  //clients.getClients(user.data.id);
                 }
               })
             }
