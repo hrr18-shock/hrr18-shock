@@ -58,7 +58,6 @@ app.factory('userRetriever', function(){
               $state.go('signup');
             } else {
               // set a global userId to get workouts for user
-              $scope.userId = user.data.id;
               console.log(user.data.id, 'im in FB function');
               // QUERY OUR DATABASE TO SEE IF USER IS A TRAINER
               $http({
@@ -69,6 +68,7 @@ app.factory('userRetriever', function(){
                 if(isTrainer.data === ''){
                   $state.go('client');
                 } else {
+                  $scope.userId = isTrainer.data.id;
                   $state.go('trainer.client');
                   clients.getClients(user.data.id);
                 }
@@ -109,6 +109,7 @@ app.controller('TrainerCtrl', [
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
+    // call to grab trainer id
     var trainerId = $scope.userId;
 
     // clients.getClients(trainerId);
