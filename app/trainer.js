@@ -23,7 +23,6 @@ app.factory('clients', ['$http', function($http){
 
   o.getWorkout = function(workoutId){
     return $http.get('/fetchWorkout/workoutlist/' + workoutId).success(function(data){
-      console.log('workout: ', data);
       angular.copy(data, o.workout);
     })
   }
