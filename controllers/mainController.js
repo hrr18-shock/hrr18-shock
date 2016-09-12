@@ -200,7 +200,19 @@ module.exports = {
       });
     }
   },
-  exercises:{
+  services:{
+    fetchAllUsers: function(req, res){
+      models.Users.findAll().then(function(result){
+        res.send(result)
+      })
+    },
+    // returns an object if user is a trainer
+    isTrainer: function(req, res){
+      models.Trainers.findOne({where:{user_id:req.params.id}}).then(function(result){
+
+        res.send(result)
+      })
+    }
 
   }
 
