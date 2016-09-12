@@ -70,7 +70,7 @@ app.factory('userRetriever', function(){
                 } else {
                   $scope.userId = isTrainer.data.id;
                   $state.go('trainer.client');
-                  clients.getClients(user.data.id);
+                  clients.getClients(isTrainer.data.id);
                 }
               })
             }
