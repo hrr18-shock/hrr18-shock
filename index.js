@@ -54,7 +54,7 @@ app.get('/clients/:id', function(req, res){
 
 
 // get all workouts for client
-app.get('/clients/:id/:id', function(req, res){
+// app.get('/clients/:id/:id', function(req, res){
 
 // create workout for client
 app.post('/clients/:id/:id/workout', function(req, res){
