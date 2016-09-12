@@ -5,7 +5,7 @@ var db = sequelize.sequelize;
 // Define user models for each table
 exports.Users = db.define('users', {
   id            : { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true},
-  fb_id         : Sequelize.INTEGER,
+  fb_id         : Sequelize.STRING,
   first_name    : Sequelize.STRING,
   last_name     : Sequelize.STRING,
   username      : Sequelize.STRING,

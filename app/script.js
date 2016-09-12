@@ -5,26 +5,33 @@ angular.module('PTapp', [
   ])
 
   .controller('signupController', function($scope, $http, signupFactory){
-
-    $scope.trainers = ['Bob', 'Jim', 'Wes'];
+    // grab trainers usernames in an array
+    $scope.trainers = $http({
+        method: 'GET',
+        url: '/displayTrainers'
+    }).then(function(data){
+      console.log(data.data.map(function(trainers){ return { trainer_id:trainers.id ,name:trainers.username}}))
+      $scope.trainers = data.data.map(function(trainers){ return { trainer_id:trainers.id ,name:trainers.username}})
+    })
 
     $scope.signup = function(){
+      console.log($scope)
       FB.api('/me', function(response){
-        signupFactory($http, $scope.role, response.id, response.name, $scope.trainer);
+        signupFactory($http, $scope.role, response.id, response.name, $scope.selectedTrainer.trainer_id);
       })
     }
   })
 
   .factory('signupFactory', function(){
-    return function($http, userRole, userID, userName, trainer){
-      console.log(userRole, userID, userName, trainer);
+    return function($http, userRole, fbID, userName, trainer){
+      console.log(userRole, fbID, userName, trainer);
       $http({
         method: 'POST',
-        url: '/create',
-        data: {userType: userRole,
-               userID:   userID,
+        url: '/signUp',
+        data: {
+               fbID:   fbID,
                userName: userName,
-               trainer:  trainer
+               trainer_id:  trainer
         }
       }).then(function(data){
         console.log('Your user was added', data);

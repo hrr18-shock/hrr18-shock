@@ -23,8 +23,9 @@ app.get('/fetchTrainer/:username', function(req, res){
   // DB helper function to retrieve user by name or id
   controller.usersView.trainerLogin(req, res)
 })
-app.post('/create', function(req, res){
+app.post('/signUp', function(req, res){
   // DB helper function to create a new user
+  controller.usersView.signUp(req, res)
 })
 app.get('/displayTrainers', function(req, res){
   controller.usersView.displayTrainers(req, res)
