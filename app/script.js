@@ -26,22 +26,32 @@ angular.module('PTapp', [
   .factory('signupFactory', function(){
     return function($http, userRole, fbID, userName, trainer){
       console.log(userRole, fbID, userName, trainer);
-      $http({
-        method: 'POST',
-        url: '/signUp',
-        data: {
-               userRole: userRole,
-               fbID:   fbID,
-               userName: userName,
-               trainer_id:  trainer || ''
-        }
-      }).then(function(data){
-        console.log('Your user was added', data);
-      }, function(data){
-        console.error(data);
-      })
-
-    }
+        $http({
+          method: 'GET',
+          url: '/fetchUser/' + userName  // {name: Caleb Keith Aston, id: 4783264897238957298}
+        }).then(function(data) { //Database request
+          console.log(data);
+          if(data.data === 'invalid user') {
+            console.log('Creating new user');
+            $http({
+              method: 'POST',
+              url: '/signUp',
+              data: {
+                     userRole: userRole,
+                     fbID:   fbID,
+                     userName: userName,
+                     trainer_id:  trainer || ''
+              }
+            }).then(function(data){
+              console.log('Your user was added', data);
+            }, function(data){
+              console.error(data);
+            })
+          } else {
+            console.log('**** User already exists ****')
+          }
+          });
+    };
   })
 
   .config(function($stateProvider, $urlRouterProvider) {

@@ -8,12 +8,7 @@ var db = require('./db/dbconfig.js')
 var controller = require('./controllers/mainController.js')
 app.use(express.static('app'));
 app.use(bodyParser.json());
-// During my MVP, an HIR told me I should always use static when creating a Single Page App.
 
-// original code Roni wrote
-// app.get('/', function(req, res) {
-//     res.sendFile(path.join(__dirname + '/index.html'));
-// });
 
 app.get('/fetchUser/:username', function(req, res){
   // DB helper function to retrieve user by name or id
