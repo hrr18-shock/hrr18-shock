@@ -41,10 +41,7 @@ app.controller('CliensCtrl', [
               // QUERY OUR DATABASE TO SEE IF USER IS A TRAINER
               console.log($scope.getMeDAID, 'thisis the client ID');
               $scope.clientIDHard = $scope.getMeDAID;
-            });
-        }).then(function(){
-
-          if($scope.clientIDHard !== undefined){
+              if($scope.clientIDHard !== undefined){
 
             $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
             angular.copy(data, $scope.clientWorkOutList);
@@ -52,8 +49,10 @@ app.controller('CliensCtrl', [
             });
 
           }
+            });
+        })
 
-        });
+
 
 
 
