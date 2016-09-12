@@ -23,8 +23,9 @@ app.get('/fetchTrainer/:username', function(req, res){
   // DB helper function to retrieve user by name or id
   controller.usersView.trainerLogin(req, res)
 })
-app.post('/create', function(req, res){
+app.post('/signUp', function(req, res){
   // DB helper function to create a new user
+  controller.usersView.signUp(req, res)
 })
 app.get('/displayTrainers', function(req, res){
   controller.usersView.displayTrainers(req, res)
@@ -49,6 +50,21 @@ app.post('/clients/:id/:id/workout', function(req, res){
 // get all clients for trainer
 app.get('/clients/:id', function(req, res){
   res.json([{name: 'Jim', id:4}]);
+})
+
+
+// get all workouts for client
+// app.get('/clients/:id/:id', function(req, res){
+
+// create workout for client
+app.post('/clients/:id/:id/workout', function(req, res){
+  //create new workout
+  res.json('it worked');
+})
+
+// get all clients for trainer
+app.get('/clients/:id', function(req, res){
+  res.json([{name: 'Jim', id:2}]);
 })
 
 // get all workouts for client

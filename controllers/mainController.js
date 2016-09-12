@@ -41,12 +41,15 @@ module.exports = {
         var workoutListID = result.id;
         var workouts = req.body.workouts;
         async.each(workouts, function(workoutItem, callback){
-          models.Workouts.create({
-            workout_list_id: workoutListID,
-            exercise_name: workoutItem.exercise_name,
-            comments: workoutItem.comments,
-            videoLink: workoutItem.videoLink
-          })
+          if(workoutItem.exercise_name && workoutItem.comments && workoutItem.videoLink){
+
+            models.Workouts.create({
+              workout_list_id: workoutListID,
+              exercise_name: workoutItem.exercise_name,
+              comments: workoutItem.comments,
+              videoLink: workoutItem.videoLink
+            })
+          }
           callback()
         })
 
@@ -107,9 +110,9 @@ module.exports = {
             res.send(result[0])
       })
     },
-    selectTrainer: function(req, res){
+    selectTrainer: function(req, res, user){
       models.Trainer_Client.create({trainer_id: req.body.trainer_id,
-        user_id: req.body.user_id
+        user_id: user[0].dataValues.id
       }).then(function(response){
         res.send('trainer selected')
       })
@@ -118,16 +121,19 @@ module.exports = {
       models.Users.findOrCreate({where:{
         $or:[
           {
-            username: req.body.username
+            username: req.body.userName
           },
           {
-            email: req.body.email
+            fb_id: req.body.fbID
           }
         ] }, defaults: {
-          first_name: req.body.firstName, last_name:req.body.lastName, address:req.body.address, phone_number:req.body.phoneNumber, email:req.body.email, username:req.body.username
+         fb_id: req.body.fbID, username: req.body.userName
         }
       }).then(function(user){
-        // res.send(user)
+        if(req.body.trainer_id){
+          module.exports.usersView.selectTrainer(req, res, user)
+
+        }
       });
     },
     userLogin: function(req, res){
@@ -138,6 +144,9 @@ module.exports = {
           },
           {
             email: req.params.email
+          },
+          {
+            fb_id: req.params.fbID
           }
         ] }
       }).then(function(user){

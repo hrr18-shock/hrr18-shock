@@ -1,7 +1,8 @@
 <div class="view" ng-app="trainerConnect" ng-controller="TrainerCtrl">
   <div class="container">
     <div class="row">
-      <div  id="clientContainer">
+       <!-- Roni add the CliensCtrl to get the $watch working here -->
+      <div  id="clientContainer" ng-controller='CliensCtrl'>
 
           <h2>Workouts</h2>
           <h3>Choose workout to display</h3>
