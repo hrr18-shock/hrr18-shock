@@ -103,7 +103,7 @@ app.controller('TrainerCtrl', [
 
     // don't know if this is correct way to get trainer id
     // FB.api('/me', function(res){return res.id });
-    var trainerId = 1;
+    var trainerId = $scope.userId;
 
     clients.getClients(trainerId);
 
