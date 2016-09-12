@@ -118,6 +118,8 @@ module.exports = {
       })
     },
     signUp: function(req, res){
+
+            console.log('signed up as trainer')
       models.Users.findOrCreate({where:{
         $or:[
           {
@@ -132,6 +134,11 @@ module.exports = {
       }).then(function(user){
         if(req.body.trainer_id){
           module.exports.usersView.selectTrainer(req, res, user)
+
+        } else if (req.body.userRole === 'trainer') {
+          models.Trainers.findOrCreate({where: {user_id: user[0].dataValues.id}}).then(function(results){
+
+            })
 
         }
       });

@@ -17,7 +17,8 @@ angular.module('PTapp', [
     $scope.signup = function(){
       console.log($scope)
       FB.api('/me', function(response){
-        signupFactory($http, $scope.role, response.id, response.name, $scope.selectedTrainer.trainer_id);
+        var trainerSelected = $scope.selectedTrainer ? $scope.selectedTrainer.trainer_id : ''
+        signupFactory($http, $scope.role, response.id, response.name, trainerSelected);
       })
     }
   })
@@ -29,9 +30,10 @@ angular.module('PTapp', [
         method: 'POST',
         url: '/signUp',
         data: {
+               userRole: userRole,
                fbID:   fbID,
                userName: userName,
-               trainer_id:  trainer
+               trainer_id:  trainer || ''
         }
       }).then(function(data){
         console.log('Your user was added', data);
