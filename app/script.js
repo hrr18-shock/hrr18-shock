@@ -63,9 +63,10 @@ angular.module('PTapp', [
       url: "/home",
       templateUrl: "./models/home.html"
     })
-    .state('signin', {
-      url: "/signin",
-      templateUrl: "./models/signin.html"
+    .state('loading', {
+      url: "/loading",
+      controller: 'TrainerCtrl',
+      templateUrl: "./models/loading.html"
     })
     .state('signup', {
       url: "/signup",
