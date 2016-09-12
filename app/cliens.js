@@ -38,9 +38,8 @@ app.controller('CliensCtrl', [
 
   $scope.workOutID = 3;
 
-  // watch is not fireing off when $scope.workOutID is changed
   $scope.$watch('workOutID', function(newValue, oldValue){
-    console.log('this runs')
+
     if (!angular.equals(oldValue, newValue)) {
 
       console.log(newValue, "old", oldValue);
