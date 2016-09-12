@@ -27,13 +27,38 @@ app.controller('CliensCtrl', [
 
 
   // $scope.linkS.push(b);
-  $scope.clientIDHard = 4;
-  $scope.clientWorkOutList = [];
+  $scope.clientIDHard = $scope.getMeDAID;
+  FB.api('/me', function(response){ //Facebook request
+          // QUERY OUR DATABASE TO SEE IF USER IS SIGNED UP
+          $http({
+            method: 'GET',
+            url: '/fetchUser/' + response.name  // {name: Caleb Keith Aston, id: 4783264897238957298}
+          }).then(function(user) {
 
-  $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
+              $scope.getMeDAID = user.data.id;
+              console.log(user.data.id, 'im in clients');
+              // QUERY OUR DATABASE TO SEE IF USER IS A TRAINER
+              console.log($scope.getMeDAID, 'thisis the client ID');
+              $scope.clientIDHard = $scope.getMeDAID;
+            });
+        })
+
+
+
+  console.log($scope.clientIDHard, 'client id here');
+  $scope.clientWorkOutList = [];
+  if($scope.clientIDHard !== undefined){
+
+    $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
     angular.copy(data, $scope.clientWorkOutList);
     console.log($scope.clientWorkOutList);
   });
+
+  };
+  // $http.get('/fetchWorkoutLists/client/' + $scope.clientIDHard).success(function(data){
+  //   angular.copy(data, $scope.clientWorkOutList);
+  //   console.log($scope.clientWorkOutList);
+  // });
 
 
   $scope.workOutID = 3;
@@ -45,9 +70,10 @@ app.controller('CliensCtrl', [
       console.log(newValue, "old", oldValue);
     $http.get('/fetchWorkout/workoutlist/' + $scope.workOutID).success(function(data){
       angular.copy(data, $scope.oo.workoutPlan);
-      console.log(data, $scope.oo.workoutPlan);
+      // console.log(data, $scope.oo.workoutPlan);
       $scope.linkS = $scope.oo.workoutPlan;
-      console.log($scope.linkS, 'thisis the sssoso$$$');
+      // console.log($scope.linkS, 'thisis the sssoso$$$');
+      console.log($scope.clientIDHard, 'client id here inside watch');
     })
 
 
