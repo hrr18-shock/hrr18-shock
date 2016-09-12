@@ -4,20 +4,18 @@
 
       <div  id="clientContainer" ng-controller='CliensCtrl'>
 
-          <h2>Workouts</h2>
-          <h3>Choose workout to display</h3>
-          <!-- {{workOutID}} -->
-          <select class="form-control" ng-model="workOutID">
-                    <option ng-repeat="option in clientWorkOutList" value="{{option.id}}">{{option.comments}}</option>
-                  </select>
-          <div class="centerText" ng-repeat="vid in linkS">
-          <p>{{ vid.exercise_name }}</p>
-           <!--  <ng-youtube-embed url="link" width="100%"></ng-youtube-embed> -->
-            <ng-youtube-embed url="vid.videoLink" width="100%"></ng-youtube-embed>
-              <p>{{ vid.comments }}</p>
-
-          </div>
+          <h2 class="centerText">Workouts</h2>
           <hr>
+          <h3>Choose workout to display</h3>
+
+          <select class="form-control" ng-model="workOutID">
+            <option ng-repeat="option in clientWorkOutList" value="{{option.id}}">{{option.comments}}</option>
+          </select>
+
+          <div class="centerText" ng-repeat="vid in linkS">
+            <h2 class="exerciseBoxes">{{vid.exercise_name}} {{vid.comments}}</h2>
+            <ng-youtube-embed url="vid.videoLink" width="100%"></ng-youtube-embed>
+          </div>
 
       </div>
     </div>
