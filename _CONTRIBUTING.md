@@ -177,40 +177,46 @@ no problem getting your changes merged in.
 
 
 
-
+//===================================================================
 ## Postgres setup
 
 brew install -g postgres
 run this command to start the server postgres
-//~ postgres -D /usr/local/var/postgres
+~ postgres -D /usr/local/var/postgres
 on a separate terminal run
-//~ createdb shock
+~ createdb shock
 to create tables from the sequelize sync run
-//~ node index.js
+~ node index.js
 
+//===================================================================
+if you made a change to the sequelize modes to drop all tables use the postgres shell by typing in
 
-if you need to drop all tables use the postgres shell by typing in
-//~ psql shock
-//~ DROP SCHEMA public cascade;
-//~ CREATE SCHEMA public
+~ psql shock
+~ DROP SCHEMA public cascade;
+~ CREATE SCHEMA public
 
+//===================================================================
 ## Database
+
 to run the db from heroku type in the command (if heroku has pg installed already)
 ~ heroku pg:psql --app shock18
-
-if there is a change of tables in the database drop and create schemas
+//===================================================================
 
 to insert dummy data into your local database
-- make sure your tables are updated by running drop and create schema
-- in one terminal run
-//~ postgres -D /usr/local/var/postgres
-in another one run
-//~ psql shock
-//~ DROP SCHEMA public cascade;
-//~ CREATE SCHEMA public
-in another terminal run
-//~ node index.js
-//~ npm test
+~ npm test
+
+//===================================================================
+A common work flow:
+Make sure your tables are updated by running drop and create schema
+In one terminal run
+~ postgres -D /usr/local/var/postgres
+In another one run
+~ psql shock
+~ DROP SCHEMA public cascade;
+~ CREATE SCHEMA public
+In another terminal run
+~ node index.js
+~ npm test
 
 
 
