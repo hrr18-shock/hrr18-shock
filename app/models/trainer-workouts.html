@@ -7,10 +7,18 @@
 </div>
 <hr>
 
-<div ng-repeat="workout in workouts">
-  <!-- Need to Change once Getting Real Data Back! -->
-  <h4 class="clientBoxes">{{workout.e1}}</h4>
-  <h4 class="clientBoxes">{{workout.d1}}</h4>
-  <h4 class="clientBoxes">{{workout.e2}}</h4>
-  <h4 class="clientBoxes">{{workout.d2}}</h4>
+<div>
+  <form ng-submit="retreiveWorkout()">
+    <div id="selectClientBox">
+      <h3>Select Title to View Workout</h3>
+      <select class="form-control" ng-model="workoutSelect" ng-options="workout.comments for workout in workouts">
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary">View Workout</button>
+  </form>
+</div>
+
+<div ng-repeat="item in workout">
+  <h4 class="clientBoxes">{{item.exercise_name}} - {{item.comments}}</h4>
+  <ng-youtube-embed url="item.videoLink" width="100%"></ng-youtube-embed>
 </div>

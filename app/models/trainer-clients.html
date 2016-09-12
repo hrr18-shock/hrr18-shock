@@ -15,7 +15,7 @@
   <form ng-submit="retreiveWorkouts()">
     <div id="selectClientBox">
       <h3>Select Client to View Workouts</h3>
-      <select class="form-control" ng-model="clientSelect" ng-options="client.name for client in clients">
+      <select class="form-control" ng-model="clientSelect" ng-options="(client.first_name + '&nbsp;' + client.last_name) for client in clients">
       </select>
     </div>
     <button type="submit" class="btn btn-primary" >View Client Workouts</button>
@@ -26,6 +26,6 @@
   <input ng-model="searchText" class="form-control" placeholder="Search Clients">
 </div>
 <div ng-repeat="client in clients | filter:searchText">
-  <h4 class="clientBoxes">{{client.name}}</h4>
+  <h4 class="clientBoxes">{{client.first_name}} {{client.last_name}}</h4>
 </div>
 

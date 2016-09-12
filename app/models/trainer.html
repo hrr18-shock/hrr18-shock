@@ -18,7 +18,7 @@
             <form ng-submit="createWorkout()">
               <div id="selectClientBox">
                 <h3>Select Client</h3>
-                <select class="form-control" ng-model="clientSelect" ng-options="client.name for client in clients">
+                <select class="form-control" ng-model="clientSelect" ng-options="(client.first_name + '&nbsp;' + client.last_name) for client in clients">
                 </select>
               </div>
               <button type="submit" class="btn btn-primary">Add Workout</button>
