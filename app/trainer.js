@@ -57,11 +57,13 @@ app.factory('userRetriever', function(){
             } else {
               // set a global userId to get workouts for user
               $scope.userId = user.data.id;
+              console.log(user.data.id, 'im in FB function');
               // QUERY OUR DATABASE TO SEE IF USER IS A TRAINER
               $http({
                 method: 'GET',
                 url: '/isTrainer/' + user.data.id
               }).then(function(isTrainer){
+                clients.getClients(user.data.id);
                 console.log('isTrainer', isTrainer);
                 if(isTrainer.data === ''){
                   $state.go('client');
@@ -105,7 +107,7 @@ app.controller('TrainerCtrl', [
     // FB.api('/me', function(res){return res.id });
     var trainerId = $scope.userId;
 
-    clients.getClients(trainerId);
+    // clients.getClients(trainerId);
 
     $scope.clients = clients.clients;
 
@@ -281,6 +283,14 @@ app.controller('TrainerCtrl', [
   // 'https://www.youtube.com/watch?v=U4BS9EXvfyg&index=5&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
   // 'https://www.youtube.com/watch?v=5a6bRnvjlgg&index=6&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8',
   // 'https://www.youtube.com/watch?v=-phbNTs-SwU&index=7&list=PL_UAXxDwtUkFzbr1npphK6WH4ytgJcQS8'];
+
+  $scope.getMeDAID = (function(){
+    var fooBar = $scope.userId;
+    console.log('serving up user id', fooBar);
+    return fooBar;
+  })();
+
+  console.log($scope.userId, 'arg')
 
   var starWidth = $(window).width();
 
