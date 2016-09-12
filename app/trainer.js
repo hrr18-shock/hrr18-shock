@@ -11,7 +11,9 @@ app.factory('clients', ['$http', function($http){
 
   o.getClients = function(trainerId){
     return $http.get('/trainer/' + trainerId + '/grabClients').success(function(data){
-      angular.copy(data[0].users, o.clients);
+      if(data.length){
+        angular.copy(data[0].users, o.clients);
+      }
     })
   }
 
@@ -68,7 +70,7 @@ app.factory('userRetriever', function(){
                   $state.go('client');
                 } else {
                   $state.go('trainer.client');
-                  //clients.getClients(user.data.id);
+                  clients.getClients(user.data.id);
                 }
               })
             }
