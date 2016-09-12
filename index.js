@@ -85,6 +85,13 @@ app.get('/trainer/:id/grabClients', function(req, res){
   controller.trainersView.grabClients(req, res)
 })
 
+//services
+app.get('/fetchAllUsers', function(req, res){
+  controller.services.fetchAllUsers(req, res)
+})
+app.get('/isTrainer/:id', function(req, res){
+  controller.services.isTrainer(req, res)
+})
 // Sync models with database then open port
 db.sequelize.sync().then(function() {
   console.log(port)
