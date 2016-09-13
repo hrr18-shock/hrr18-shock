@@ -41,6 +41,7 @@ app.factory('clients', ['$http', function($http){
 
 app.factory('userRetriever', function(){
   return function($location, $http, $state, $scope, clients){
+    console.log('$LOCATION*****************',$location.$$path);
     FB.getLoginStatus(function(response) {
       //console.log('You are', response.status);
       if(response.status !== 'connected'){
