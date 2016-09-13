@@ -75,7 +75,7 @@ app.controller('CliensCtrl', [
   // });
 
 
-  $scope.workOutID = 3;
+  $scope.workOutID = 0;
 
   $scope.$watch('workOutID', function(newValue, oldValue){
 
