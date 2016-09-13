@@ -41,7 +41,6 @@ app.factory('clients', ['$http', function($http){
 
 app.factory('userRetriever', function(){
   return function($location, $http, $state, $scope, clients){
-    console.log('$LOCATION*****************',$location.$$path);
     FB.getLoginStatus(function(response) {
       //console.log('You are', response.status);
       if(response.status !== 'connected'){
@@ -70,7 +69,10 @@ app.factory('userRetriever', function(){
                 if(isTrainer.data === ''){
                   $state.go('client');
                 } else {
-                  $state.go('trainer.client');
+                  console.log('$LOCATION*****************',$location.$$path);
+                  if($location.$$path !== '/trainer/trainer-workouts/'){
+                    $state.go('trainer.client');
+                  }
                   clients.getClients(isTrainer.data.id);
                 }
               })
