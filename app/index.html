@@ -6,7 +6,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="style.css" rel="stylesheet">
 </head>
-<body>
+<body style="background-color: #ececec">
 
   <script>
     // This is called with the results from from FB.getLoginStatus().
@@ -89,18 +89,22 @@
     }
   </script>
 
-  <h1><a ui-sref="home">Personal Trainer Shock</a></h1>
+  <div style="text-align: center;">
+    <h1><a ui-sref="home">Gym Logger</a></h1>
 
 
-  <div class="fb-login-button" data-max-rows="1" data-size="medium" data-scope="public_profile,email" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
-  <div id="status"></div>
+    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-scope="public_profile,email" data-show-faces="false" data-auto-logout-link="true" onlogin="checkLoginState();"></div>
+    <div id="status"></div>
 
-  <nav>
-    <ul>
-      <li><a ui-sref="signup">Sign up!</a></li>
-      <li><a ui-sref="loading">My Page</a></li>
-    </ul>
-  </nav>
+    <div>
+      <nav>
+        <ul>
+          <li><a ui-sref="signup">Sign up!</a></li>
+          <li><a ui-sref="loading">My Page</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
 
   <div ui-view></div>
 

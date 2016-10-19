@@ -1,18 +1,26 @@
-<div id='signup'>
-  <h1>Sign up</h1>
+<div class="view">
+  <div class="container">
+    <div class="row">
+      <div  class="generalContainer">
+        <div id='signup'>
+          <h1>Sign up</h1>
 
-  <h3>You Are A:</h3>
-  <form>
-    <input type="radio" ng-model="role" value="trainer" checked> Trainer<br>
-    <input type="radio" ng-model="role" value="client"> Client
-  </form>
-  <h4>If you are a client, select your trainer!</h4>
-  <select ng-model="selectedTrainer" ng-options="trainer.name for trainer in trainers">
-  </select>
+          <h3>You Are A:</h3>
+          <form>
+            <input type="radio" ng-model="role" value="trainer" checked> Trainer<br>
+            <input type="radio" ng-model="role" value="client"> Client
+          </form>
+          <h4>If you are a client, select your trainer!</h4>
+          <select ng-model="selectedTrainer" ng-options="trainer.name for trainer in trainers">
+          </select>
 
-  <h3>Login With Facebook Before Signing Up</h3>
+          <h3>Login With Facebook Before Signing Up</h3>
 
-  <button ng-click="signup()">Sign Up</button> <br>
+          <button ng-click="signup()">Sign Up</button> <br>
 
-  <p>Already have an account? <strong>Log In With Facebook</strong> at the top of the page.</p>
+          <p>Already have an account? <strong>Log In With Facebook</strong> at the top of the page.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
